@@ -246,6 +246,7 @@ let
     ./programs/tmate.nix
     ./programs/tmux.nix
     ./programs/tofi.nix
+    ./programs/todoman.nix
     ./programs/topgrade.nix
     ./programs/translate-shell.nix
     ./programs/urxvt.nix
@@ -345,6 +346,7 @@ let
     ./services/nextcloud-client.nix
     ./services/nix-gc.nix
     ./services/notify-osd.nix
+    ./services/ollama.nix
     ./services/opensnitch-ui.nix
     ./services/osmscout-server.nix
     ./services/owncloud-client.nix
@@ -405,6 +407,7 @@ let
     ./services/window-managers/i3-sway/swaynag.nix
     ./services/window-managers/river.nix
     ./services/window-managers/spectrwm.nix
+    ./services/window-managers/wayfire.nix
     ./services/window-managers/xmonad.nix
     ./services/wlsunset.nix
     ./services/wob.nix

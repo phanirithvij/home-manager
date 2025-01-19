@@ -83,6 +83,7 @@ in import nmtSrc {
     ./modules/programs/git
     ./modules/programs/git-cliff
     ./modules/programs/git-credential-oauth
+    ./modules/programs/go
     ./modules/programs/gpg
     ./modules/programs/gradle
     ./modules/programs/granted
@@ -158,6 +159,7 @@ in import nmtSrc {
     ./modules/programs/tealdeer
     ./modules/programs/texlive
     ./modules/programs/thefuck
+    ./modules/programs/thunderbird
     ./modules/programs/tmate
     ./modules/programs/tmux
     ./modules/programs/topgrade
@@ -226,7 +228,6 @@ in import nmtSrc {
     ./modules/programs/swaylock
     ./modules/programs/swayr
     ./modules/programs/terminator
-    ./modules/programs/thunderbird
     ./modules/programs/tofi
     ./modules/programs/waybar
     ./modules/programs/wlogout
@@ -269,6 +270,7 @@ in import nmtSrc {
     ./modules/services/mpd-mpris
     ./modules/services/mpdris2
     ./modules/services/nix-gc
+    ./modules/services/ollama
     ./modules/services/osmscout-server
     ./modules/services/pantalaimon
     ./modules/services/parcellite
@@ -302,6 +304,7 @@ in import nmtSrc {
     ./modules/services/window-managers/river
     ./modules/services/window-managers/spectrwm
     ./modules/services/window-managers/sway
+    ./modules/services/window-managers/wayfire
     ./modules/services/wlsunset
     ./modules/services/wob
     ./modules/services/xsettingsd
