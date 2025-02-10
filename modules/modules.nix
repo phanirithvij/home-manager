@@ -36,12 +36,14 @@ let
     ./misc/pam.nix
     ./misc/qt.nix
     ./misc/qt/kconfig.nix
+    ./misc/shell.nix
     ./misc/specialisation.nix
     ./misc/submodule-support.nix
     ./misc/tmpfiles.nix
     ./misc/uninstall.nix
     ./misc/version.nix
     ./misc/vte.nix
+    ./misc/xdg-autostart.nix
     ./misc/xdg-desktop-entries.nix
     ./misc/xdg-mime-apps.nix
     ./misc/xdg-mime.nix
@@ -52,6 +54,7 @@ let
     ./misc/xfconf.nix
     ./programs/abook.nix
     ./programs/aerc.nix
+    ./programs/aerospace.nix
     ./programs/afew.nix
     ./programs/alacritty.nix
     ./programs/alot.nix
@@ -146,6 +149,7 @@ let
     ./programs/kitty.nix
     ./programs/kodi.nix
     ./programs/kubecolor.nix
+    ./programs/lapce.nix
     ./programs/lazygit.nix
     ./programs/ledger.nix
     ./programs/less.nix
@@ -246,6 +250,7 @@ let
     ./programs/tmate.nix
     ./programs/tmux.nix
     ./programs/tofi.nix
+    ./programs/todoman.nix
     ./programs/topgrade.nix
     ./programs/translate-shell.nix
     ./programs/urxvt.nix
@@ -329,6 +334,7 @@ let
     ./services/keybase.nix
     ./services/keynav.nix
     ./services/lieer.nix
+    ./services/linux-wallpaperengine.nix
     ./services/listenbrainz-mpd.nix
     ./services/lorri.nix
     ./services/mako.nix
@@ -345,6 +351,7 @@ let
     ./services/nextcloud-client.nix
     ./services/nix-gc.nix
     ./services/notify-osd.nix
+    ./services/ollama.nix
     ./services/opensnitch-ui.nix
     ./services/osmscout-server.nix
     ./services/owncloud-client.nix
@@ -387,6 +394,7 @@ let
     ./services/taffybar.nix
     ./services/tahoe-lafs.nix
     ./services/taskwarrior-sync.nix
+    ./services/tldr-update.nix
     ./services/trayer.nix
     ./services/trayscale.nix
     ./services/twmn.nix
@@ -405,6 +413,7 @@ let
     ./services/window-managers/i3-sway/swaynag.nix
     ./services/window-managers/river.nix
     ./services/window-managers/spectrwm.nix
+    ./services/window-managers/wayfire.nix
     ./services/window-managers/xmonad.nix
     ./services/wlsunset.nix
     ./services/wob.nix

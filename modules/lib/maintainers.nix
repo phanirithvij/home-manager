@@ -79,6 +79,12 @@
     github = "considerate";
     githubId = 217918;
   };
+  damidoug = {
+    email = "contact@damidoug.dev";
+    github = "damidoug";
+    githubId = 75175586;
+    name = "Douglas Damiano";
+  };
   danjujan = {
     name = "Jan Schmitz";
     email = "44864658+danjujan@users.noreply.github.com";
@@ -478,6 +484,12 @@
     github = "mainrs";
     githubId = 5113257;
   };
+  mikilio = {
+    name = "mikilio";
+    email = "official.mikilio+dev@gmail.com";
+    github = "mikilio";
+    githubId = 86004375;
+  };
   kmaasrud = {
     name = "Knut Magnus Aasrud";
     email = "km@aasrud.com";
@@ -549,6 +561,13 @@
     github = "tensor5";
     githubId = 1545895;
     name = "Nicola Squartini";
+  };
+  timon-schelling = {
+    name = "Timon Schelling";
+    email = "me@timon.zip";
+    github = "timon-schelling";
+    githubId = 36821505;
+    matrix = "@timon:beeper.com";
   };
   toastal = {
     email = "toastal+nix@posteo.net";
@@ -627,5 +646,11 @@
     email = "NicholasACiechanowski@gmail.com";
     github = "ALameLlama";
     githubId = 55490546;
+  };
+  ckgxrg = {
+    name = "ckgxrg";
+    email = "ckgxrg@ckgxrg.io";
+    github = "ckgxrg-salt";
+    githubId = 165614491;
   };
 }

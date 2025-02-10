@@ -18,14 +18,12 @@ let
   '';
 
   fishIntegration = ''
-    function ${cfg.shellWrapperName}
-      set tmp (mktemp -t "yazi-cwd.XXXXX")
-      yazi $argv --cwd-file="$tmp"
-      if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-        builtin cd -- "$cwd"
-      end
-      rm -f -- "$tmp"
+    set -l tmp (mktemp -t "yazi-cwd.XXXXX")
+    command yazi $argv --cwd-file="$tmp"
+    if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+      builtin cd -- "$cwd"
     end
+    rm -f -- "$tmp"
   '';
 
   nushellIntegration = ''
@@ -40,7 +38,7 @@ let
     }
   '';
 in {
-  meta.maintainers = with maintainers; [ xyenon eljamm ];
+  meta.maintainers = with lib.maintainers; [ eljamm khaneliman xyenon ];
 
   options.programs.yazi = {
     enable = mkEnableOption "yazi";
@@ -56,21 +54,17 @@ in {
       '';
     };
 
-    enableBashIntegration = mkEnableOption "Bash integration" // {
-      default = true;
-    };
+    enableBashIntegration =
+      lib.hm.shell.mkBashIntegrationOption { inherit config; };
 
-    enableZshIntegration = mkEnableOption "Zsh integration" // {
-      default = true;
-    };
+    enableFishIntegration =
+      lib.hm.shell.mkFishIntegrationOption { inherit config; };
 
-    enableFishIntegration = mkEnableOption "Fish integration" // {
-      default = true;
-    };
+    enableNushellIntegration =
+      lib.hm.shell.mkNushellIntegrationOption { inherit config; };
 
-    enableNushellIntegration = mkEnableOption "Nushell integration" // {
-      default = true;
-    };
+    enableZshIntegration =
+      lib.hm.shell.mkZshIntegrationOption { inherit config; };
 
     keymap = mkOption {
       type = tomlFormat.type;
@@ -202,7 +196,7 @@ in {
 
     programs.zsh.initExtra = mkIf cfg.enableZshIntegration bashIntegration;
 
-    programs.fish.interactiveShellInit =
+    programs.fish.functions.${cfg.shellWrapperName} =
       mkIf cfg.enableFishIntegration fishIntegration;
 
     programs.nushell.extraConfig =
@@ -265,8 +259,12 @@ in {
                 toString missingFiles
               }";
             singularOpt = removeSuffix "s" opt;
+            isPluginValid = opt == "plugins"
+              && (any (file: pathExists "${value}/${file}") requiredFiles);
+            isValid =
+              if opt == "plugins" then isPluginValid else missingFiles == [ ];
           in {
-            assertion = isDir && missingFiles == [ ];
+            assertion = isDir && isValid;
             message = ''
               Value at `programs.yazi.${opt}.${name}` is not a valid yazi ${singularOpt}.
               ${msgNotDir}
@@ -281,6 +279,6 @@ in {
       "preview.png"
       "LICENSE"
       "LICENSE-tmtheme"
-    ]) ++ (mkAsserts "plugins" [ "init.lua" ]);
+    ]) ++ (mkAsserts "plugins" [ "init.lua" "main.lua" ]);
   };
 }

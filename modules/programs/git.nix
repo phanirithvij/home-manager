@@ -18,6 +18,7 @@ let
     options = {
       key = mkOption {
         type = types.nullOr types.str;
+        default = null;
         description = ''
           The default GPG signing key fingerprint.
 
@@ -97,7 +98,7 @@ let
   });
 
 in {
-  meta.maintainers = [ maintainers.rycee ];
+  meta.maintainers = with lib.maintainers; [ khaneliman rycee ];
 
   options = {
     programs.git = {

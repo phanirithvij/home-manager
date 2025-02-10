@@ -9,31 +9,105 @@ let
     sha256 = "0qhn7nnwdwzh910ss78ga2d00v42b0lspfd7ybl61mpfgz3lmdcj";
   };
 
+  # Recursively replace each derivation in the given attribute set with the same
+  # derivation but with the `outPath` attribute set to the string
+  # `"@package-name@"`. This allows the tests to refer to derivations through
+  # their values without establishing an actual dependency on the derivation
+  # output.
+  scrubDerivations = attrs:
+    let
+      scrubDerivation = name: value:
+        let
+          scrubbedValue = scrubDerivations value;
+
+          newDrvAttrs = {
+            buildScript = abort "no build allowed";
+
+            outPath = builtins.traceVerbose ("${name} - got out path")
+              "@${lib.getName value}@";
+
+            # Prevent getOutput from descending into outputs
+            outputSpecified = true;
+
+            # Allow the original package to be used in derivation inputs
+            __spliced = {
+              buildHost = value;
+              hostTarget = value;
+            };
+          };
+        in if lib.isAttrs value then
+          if lib.isDerivation value then
+            scrubbedValue // newDrvAttrs
+          else
+            scrubbedValue
+        else
+          value;
+    in lib.mapAttrs scrubDerivation attrs;
+
+  # Globally unscrub a few selected packages that are used by a wide selection of tests.
+  whitelist = let
+    inner = self: super: {
+      inherit (pkgs)
+        coreutils jq desktop-file-utils diffutils findutils glibcLocales gettext
+        gnugrep gnused shared-mime-info emptyDirectory
+        # Needed by pretty much all tests that have anything to do with fish.
+        babelfish fish;
+
+      xorg =
+        super.xorg.overrideScope (self: super: { inherit (pkgs.xorg) lndir; });
+    };
+
+    outer = self: super:
+      inner self super // {
+        buildPackages = super.buildPackages.extend inner;
+      };
+  in outer;
+
+  scrubbedPkgs =
+    let rawScrubbedPkgs = lib.makeExtensible (final: scrubDerivations pkgs);
+    in builtins.traceVerbose "eval scrubbed nixpkgs"
+    (rawScrubbedPkgs.extend whitelist);
+
   modules = import ../modules/modules.nix {
     inherit lib pkgs;
     check = false;
-  } ++ [{
-    # Bypass <nixpkgs> reference inside modules/modules.nix to make the test
-    # suite more pure.
-    _module.args.pkgsPath = pkgs.path;
+  } ++ [
+    ({ config, ... }: {
+      _module.args = {
+        # Prevent the nixpkgs module from working. We want to minimize the number
+        # of evaluations of Nixpkgs.
+        pkgsPath = abort "pkgs path is unavailable in tests";
+        realPkgs = pkgs;
+        pkgs = let
+          overlays = config.test.stubOverlays ++ lib.optionals
+            (config.nixpkgs.overlays != null && config.nixpkgs.overlays != [ ])
+            config.nixpkgs.overlays;
+          stubbedPkgs = if overlays == [ ] then
+            scrubbedPkgs
+          else
+            builtins.traceVerbose "eval overlayed nixpkgs"
+            (lib.foldr (o: p: p.extend o) scrubbedPkgs overlays);
+        in lib.mkImageMediaOverride stubbedPkgs;
+      };
 
-    # Fix impurities. Without these some of the user's environment
-    # will leak into the tests through `builtins.getEnv`.
-    xdg.enable = true;
-    home = {
-      username = "hm-user";
-      homeDirectory = "/home/hm-user";
-      stateVersion = lib.mkDefault "18.09";
-    };
+      # Fix impurities. Without these some of the user's environment
+      # will leak into the tests through `builtins.getEnv`.
+      xdg.enable = true;
+      home = {
+        username = "hm-user";
+        homeDirectory = "/home/hm-user";
+        stateVersion = lib.mkDefault "18.09";
+      };
 
-    # Avoid including documentation since this will cause
-    # unnecessary rebuilds of the tests.
-    manual.manpages.enable = lib.mkDefault false;
+      # Avoid including documentation since this will cause
+      # unnecessary rebuilds of the tests.
+      manual.manpages.enable = lib.mkDefault false;
 
-    imports = [ ./asserts.nix ./big-test.nix ./stubs.nix ];
+      imports = [ ./asserts.nix ./big-test.nix ./stubs.nix ];
 
-    test.enableBig = enableBig;
-  }];
+      test.enableBig = enableBig;
+    })
+  ];
 
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
@@ -83,6 +157,7 @@ in import nmtSrc {
     ./modules/programs/git
     ./modules/programs/git-cliff
     ./modules/programs/git-credential-oauth
+    ./modules/programs/go
     ./modules/programs/gpg
     ./modules/programs/gradle
     ./modules/programs/granted
@@ -100,6 +175,7 @@ in import nmtSrc {
     ./modules/programs/khard
     ./modules/programs/kitty
     ./modules/programs/kubecolor
+    ./modules/programs/lapce
     ./modules/programs/ledger
     ./modules/programs/less
     ./modules/programs/lesspipe
@@ -158,6 +234,7 @@ in import nmtSrc {
     ./modules/programs/tealdeer
     ./modules/programs/texlive
     ./modules/programs/thefuck
+    ./modules/programs/thunderbird
     ./modules/programs/tmate
     ./modules/programs/tmux
     ./modules/programs/topgrade
@@ -178,11 +255,13 @@ in import nmtSrc {
     ./modules/xresources
   ] ++ lib.optionals isDarwin [
     ./modules/launchd
+    ./modules/programs/aerospace
     ./modules/services/emacs-darwin
     ./modules/services/espanso-darwin
     ./modules/services/git-sync-darwin
     ./modules/services/imapnotify-darwin
     ./modules/services/nix-gc-darwin
+    ./modules/services/ollama/darwin
     ./modules/targets-darwin
   ] ++ lib.optionals isLinux [
     ./modules/config/i18n
@@ -226,7 +305,6 @@ in import nmtSrc {
     ./modules/programs/swaylock
     ./modules/programs/swayr
     ./modules/programs/terminator
-    ./modules/programs/thunderbird
     ./modules/programs/tofi
     ./modules/programs/waybar
     ./modules/programs/wlogout
@@ -264,11 +342,13 @@ in import nmtSrc {
     ./modules/services/imapnotify
     ./modules/services/kanshi
     ./modules/services/lieer
+    ./modules/services/linux-wallpaperengine
     ./modules/services/mopidy
     ./modules/services/mpd
     ./modules/services/mpd-mpris
     ./modules/services/mpdris2
     ./modules/services/nix-gc
+    ./modules/services/ollama/linux
     ./modules/services/osmscout-server
     ./modules/services/pantalaimon
     ./modules/services/parcellite
@@ -290,6 +370,7 @@ in import nmtSrc {
     ./modules/services/swayosd
     ./modules/services/sxhkd
     ./modules/services/syncthing/linux
+    ./modules/services/tldr-update
     ./modules/services/trayer
     ./modules/services/trayscale
     ./modules/services/twmn
@@ -302,6 +383,7 @@ in import nmtSrc {
     ./modules/services/window-managers/river
     ./modules/services/window-managers/spectrwm
     ./modules/services/window-managers/sway
+    ./modules/services/window-managers/wayfire
     ./modules/services/wlsunset
     ./modules/services/wob
     ./modules/services/xsettingsd
