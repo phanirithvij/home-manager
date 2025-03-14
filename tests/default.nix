@@ -93,6 +93,7 @@ let
       "pls"
       "pyenv"
       "sagemath"
+      "sapling"
       "scmpuff"
       "sm64ex"
       "thefuck"
@@ -100,6 +101,7 @@ let
       "yubikey-agent"
       "zellij"
       "zplug"
+      "zsh"
     ];
 
     inner = self: super:
@@ -325,6 +327,7 @@ in import nmtSrc {
     ./modules/services/git-sync-darwin
     ./modules/services/imapnotify-darwin
     ./modules/services/nix-gc-darwin
+    ./modules/services/macos-remap-keys
     ./modules/services/ollama/darwin
     ./modules/services/yubikey-agent-darwin
     ./modules/targets-darwin
