@@ -119,14 +119,41 @@ $ sudo nix-channel --update
 </code></pre><p>It is then possible to add</p><pre><code class="programlisting  nix">imports = [ &lt;home-manager/nixos&gt; ];
 </code></pre><p>to your system <code class="literal">configuration.nix</code> file, which will introduce a new
 NixOS option called <code class="literal">home-manager.users</code> whose type is an attribute set
-that maps user names to Home Manager configurations.</p><p>For example, a NixOS configuration may include the lines</p><pre><code class="programlisting  nix">users.users.eve.isNormalUser = true;
+that maps user names to Home Manager configurations.</p><p>Alternatively, home-manager installation can be done declaratively through configuration.nix using the following syntax:</p><pre><code class="programlisting nix">{ config, pkgs, lib, ... }:
+
+let
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;
+in
+{
+  imports =
+    [
+      (import &quot;${home-manager}/nixos&quot;)
+    ];
+
+  users.users.eve.isNormalUser = true;
+  home-manager.users.eve = { pkgs, ... }: {
+    home.packages = [ pkgs.atool pkgs.httpie ];
+    programs.bash.enable = true;
+  
+    # The state version is required and should stay at the version you
+    # originally installed.
+    home.stateVersion = &quot;24.11&quot;;
+  };
+}
+</code></pre><p>For example, a NixOS configuration may include the lines</p><pre><code class="programlisting  nix">users.users.eve.isNormalUser = true;
 home-manager.users.eve = { pkgs, ... }: {
   home.packages = [ pkgs.atool pkgs.httpie ];
   programs.bash.enable = true;
 
-  # The state version is required and should stay at the version you
-  # originally installed.
-  home.stateVersion = &quot;24.11&quot;;
+  # This value determines the Home Manager release that your configuration is 
+  # compatible with. This helps avoid breakage when a new Home Manager release 
+  # introduces backwards incompatible changes. 
+  #
+  # You should not change this value, even if you update Home Manager. If you do 
+  # want to update the value, then make sure to first check the Home Manager 
+  # release notes. 
+  home.stateVersion = &quot;24.05&quot;; # Please read the comment before changing. 
+
 };
 </code></pre><p>and after a <code class="literal">sudo nixos-rebuild switch</code> the user eve’s environment
 should include a basic Bash configuration and the packages atool and
@@ -506,7 +533,7 @@ be as follows:</p><pre><code class="programlisting  nix">{
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jdoe = import ./home.nix;
+            home-manager.users.jdoe = ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -543,7 +570,7 @@ to that of NixOS. The <code class="literal">flake.nix</code> would be:</p><pre><
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jdoe = import ./home.nix;
+            home-manager.users.jdoe = ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -879,10 +906,11 @@ associated news entry. In general, a news entry should only be added for
 truly noteworthy news. For example, a bug fix or new option does
 generally not need a news entry.</p><p>If you do have a change worthy of a news entry then please add one in
 <a class="link" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/news.nix"  target="_top"><code class="literal">news.nix</code></a>
-but you should follow some basic guidelines:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>The entry timestamp should be in ISO-8601 format having &quot;+00:00&quot;
-as time zone. For example, &quot;2017-09-13T17:10:14+00:00&quot;. A suitable
-timestamp can be produced by the command</p><pre><code class="programlisting  shell">$ date --iso-8601=second --universal
-</code></pre></li><li class="listitem"><p>The entry condition should be as specific as possible. For example,
+but you should follow some basic guidelines:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Use the included
+<a class="link" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/news/create-news-entry.sh"  target="_top"><code class="literal">create-news-entry.sh</code></a>
+script to generate a news entry file:</p><pre><code class="programlisting  shell">$ modules/misc/news/create-news-entry.sh
+</code></pre><p>this will create a new file inside <code class="literal">modules/misc/news</code> directory
+with some placeholder information that you can edit.</p></li><li class="listitem"><p>The entry condition should be as specific as possible. For example,
 if you are changing or deprecating a specific option then you could
 restrict the news to those users who actually use this option.</p></li><li class="listitem"><p>Wrap the news message so that it will fit in the typical terminal,
 that is, at most 80 characters wide. Ideally a bit less.</p></li><li class="listitem"><p>Unlike commit messages, news will be read without any connection to
