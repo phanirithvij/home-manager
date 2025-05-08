@@ -28322,6 +28322,58 @@ attribute set of string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.git.patdiff.enable"></a><a class="term" href="options.xhtml#opt-programs.git.patdiff.enable"><code class="option">programs.git.patdiff.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable the <span class="command"><strong>patdiff</strong></span> differ.
+See <a class="link" href="https://opensource.janestreet.com/patdiff/"  target="_top">https://opensource.janestreet.com/patdiff/</a></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix" target="_top">
+&lt;home-manager/modules/programs/git.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.git.patdiff.package"></a><a class="term" href="options.xhtml#opt-programs.git.patdiff.package"><code class="option">programs.git.patdiff.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The patdiff package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.patdiff</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix" target="_top">
+&lt;home-manager/modules/programs/git.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.git.riff.enable"></a><a class="term" href="options.xhtml#opt-programs.git.riff.enable"><code class="option">programs.git.riff.enable</code>
   </a>
  </span>
@@ -51796,7 +51848,6 @@ null or boolean</p>
 <code class="literal">{ }</code></p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
-  modi = &quot;drun,emoji,ssh&quot;;
   kb-primary-paste = &quot;Control+V,Shift+Insert&quot;;
   kb-secondary-paste = &quot;Control+v,Insert&quot;;
 }
@@ -51874,6 +51925,42 @@ one of “bottom”, “bottom-left”, “bottom-right”, “center”, “lef
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">&quot;center&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rofi.nix" target="_top">
+&lt;home-manager/modules/programs/rofi.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rofi.modes"></a><a class="term" href="options.xhtml#opt-programs.rofi.modes"><code class="option">programs.rofi.modes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Modes to enable. For custom modes see <code class="literal">man 5 rofi-script</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (string or (submodule))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
+  &quot;drun&quot;
+  &quot;emoji&quot;
+  &quot;ssh&quot;
+  {
+    name = &quot;whatnot&quot;;
+    path = lib.getExe pkgs.rofi-whatnot;
+  }
+]
+
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -64586,6 +64673,96 @@ attribute set of (boolean or floating point number or signed integer or absolute
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/waylogout.nix" target="_top">
 &lt;home-manager/modules/programs/waylogout.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.wayprompt.enable"></a><a class="term" href="options.xhtml#opt-programs.wayprompt.enable"><code class="option">programs.wayprompt.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Wayprompt, a password-prompter for Wayland.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wayprompt.nix" target="_top">
+&lt;home-manager/modules/programs/wayprompt.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.wayprompt.package"></a><a class="term" href="options.xhtml#opt-programs.wayprompt.package"><code class="option">programs.wayprompt.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The wayprompt package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.wayprompt</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wayprompt.nix" target="_top">
+&lt;home-manager/modules/programs/wayprompt.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.wayprompt.settings"></a><a class="term" href="options.xhtml#opt-programs.wayprompt.settings"><code class="option">programs.wayprompt.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration for wayprompt written to
+<code class="filename">$XDG_CONFIG_HOME/wayprompt/config.ini</code>.
+See <span class="citerefentry"><span class="refentrytitle">wayprompt</span>(5)</span> for a list of available options.
+Note that colours can be either 6-hex-digit RGB or 8-hex-digit RGBA values.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  general = {
+    font-regular = &quot;sans:size=14&quot;;
+    pin-square-amount = 32;
+  };
+  colours = {
+    background = &quot;0xffffffaa&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wayprompt.nix" target="_top">
+&lt;home-manager/modules/programs/wayprompt.nix&gt;
 </a></code>
 </td></tr>
 </table>
