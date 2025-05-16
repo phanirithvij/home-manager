@@ -18,6 +18,12 @@
     github = "abayomi185";
     githubId = 21103047;
   };
+  Aehmlo = {
+    name = "Alex";
+    email = "1622250+Aehmlo@users.noreply.github.com";
+    github = "Aehmlo";
+    githubId = 1622250;
+  };
   afresquet = {
     name = "Alvaro Fresquet";
     email = "alvarofresquet@gmail.com";
@@ -326,6 +332,12 @@
     email = "65362461+msyds@users.noreply.github.com";
     github = "msyds";
     githubId = 65362461;
+  };
+  nickthegroot = {
+    name = "Nick DeGroot";
+    email = "nick@nickthegroot.com";
+    github = "nickthegroot";
+    githubId = 1966472;
   };
   nikp123 = {
     name = "nikp123";
