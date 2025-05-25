@@ -158,6 +158,7 @@ import nmtSrc {
   ];
   tests = builtins.foldl' (a: b: a // (import b)) { } (
     [
+      # keep-sorted start case=no numeric=yes
       ./lib/generators
       ./lib/types
       ./modules/files
@@ -219,9 +220,9 @@ import nmtSrc {
       ./modules/programs/i3status
       ./modules/programs/inori
       ./modules/programs/irssi
-      ./modules/programs/jujutsu
       ./modules/programs/joplin-desktop
       ./modules/programs/jqp
+      ./modules/programs/jujutsu
       ./modules/programs/k9s
       ./modules/programs/kakoune
       ./modules/programs/keepassxc
@@ -230,13 +231,13 @@ import nmtSrc {
       ./modules/programs/kitty
       ./modules/programs/kubecolor
       ./modules/programs/lapce
-      ./modules/programs/ledger
       ./modules/programs/lazydocker
+      ./modules/programs/ledger
       ./modules/programs/less
       ./modules/programs/lesspipe
       ./modules/programs/lf
-      ./modules/programs/lsd
       ./modules/programs/lieer
+      ./modules/programs/lsd
       ./modules/programs/man
       ./modules/programs/mbsync
       ./modules/programs/mergiraf
@@ -257,6 +258,7 @@ import nmtSrc {
       ./modules/programs/nix-init
       ./modules/programs/nix-your-shell
       ./modules/programs/nnn
+      ./modules/programs/numbat
       ./modules/programs/nushell
       ./modules/programs/oh-my-posh
       ./modules/programs/onlyoffice
@@ -265,6 +267,7 @@ import nmtSrc {
       ./modules/programs/papis
       ./modules/programs/pay-respects
       ./modules/programs/pet
+      ./modules/programs/pgcli
       ./modules/programs/pistol
       ./modules/programs/pls
       ./modules/programs/poetry
@@ -324,14 +327,19 @@ import nmtSrc {
       ./modules/services/gpg-agent
       ./modules/services/syncthing/common
       ./modules/xresources
+      # keep-sorted end
     ]
     ++ lib.optionals isDarwin [
+      # keep-sorted start case=no numeric=yes
       ./modules/launchd
       ./modules/programs/aerospace
       ./modules/programs/element-desktop/darwin.nix
+      ./modules/programs/sketchybar
+      ./modules/services/borgmatic-darwin
       ./modules/services/emacs-darwin
       ./modules/services/espanso-darwin
       ./modules/services/git-sync-darwin
+      ./modules/services/home-manager-auto-expire-darwin
       ./modules/services/imapnotify-darwin
       ./modules/services/jankyborders
       ./modules/services/macos-remap-keys
@@ -340,11 +348,13 @@ import nmtSrc {
       ./modules/services/skhd
       ./modules/services/yubikey-agent-darwin
       ./modules/targets-darwin
+      # keep-sorted end
     ]
     ++ lib.optionals isLinux [
-      ./modules/misc/xdg/linux.nix
+      # keep-sorted start case=no numeric=yes
       ./modules/config/home-cursor
       ./modules/config/i18n
+      ./modules/dbus
       ./modules/i18n/input-method
       ./modules/misc/debug
       ./modules/misc/editorconfig
@@ -352,6 +362,7 @@ import nmtSrc {
       ./modules/misc/numlock
       ./modules/misc/pam
       ./modules/misc/qt
+      ./modules/misc/xdg/linux.nix
       ./modules/misc/xsession
       ./modules/programs/abook
       ./modules/programs/anyrun
@@ -364,20 +375,22 @@ import nmtSrc {
       ./modules/programs/distrobox
       ./modules/programs/element-desktop/linux.nix
       ./modules/programs/eww
+      ./modules/programs/foliate
       ./modules/programs/foot
       ./modules/programs/freetube
       ./modules/programs/fuzzel
       ./modules/programs/getmail
       ./modules/programs/gnome-shell
       ./modules/programs/gnome-terminal
+      ./modules/programs/halloy
       ./modules/programs/hexchat
       ./modules/programs/hyprlock
       ./modules/programs/i3bar-river
       ./modules/programs/i3blocks
       ./modules/programs/i3status-rust
       ./modules/programs/imv
-      ./modules/programs/kodi
       ./modules/programs/kickoff
+      ./modules/programs/kodi
       ./modules/programs/looking-glass-client
       ./modules/programs/lutris
       ./modules/programs/mangohud
@@ -387,6 +400,7 @@ import nmtSrc {
       ./modules/programs/onagre
       ./modules/programs/onedrive
       ./modules/programs/pqiv
+      ./modules/programs/ptyxis
       ./modules/programs/rbw
       ./modules/programs/rofi
       ./modules/programs/rofi-pass
@@ -416,8 +430,8 @@ import nmtSrc {
       ./modules/services/clipman
       ./modules/services/clipse
       ./modules/services/comodoro
-      ./modules/services/copyq
       ./modules/services/conky
+      ./modules/services/copyq
       ./modules/services/darkman
       ./modules/services/davmail
       ./modules/services/devilspie2
@@ -483,6 +497,7 @@ import nmtSrc {
       ./modules/services/udiskie
       ./modules/services/volnoti
       ./modules/services/way-displays
+      ./modules/services/wayvnc
       ./modules/services/window-managers/bspwm
       ./modules/services/window-managers/herbstluftwm
       ./modules/services/window-managers/hyprland
@@ -499,6 +514,7 @@ import nmtSrc {
       ./modules/services/yubikey-agent
       ./modules/systemd
       ./modules/targets-linux
+      # keep-sorted end
     ]
   );
 }
