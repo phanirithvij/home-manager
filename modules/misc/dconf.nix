@@ -44,8 +44,7 @@ in
         default = !pkgs.stdenv.hostPlatform.isDarwin;
         visible = false;
         description = ''
-          Whether to enable dconf settings.
-
+          Whether to enable dconf settings.Add commentMore actions
           Note, if you use NixOS then you must add
           `programs.dconf.enable = true`
           to your system configuration. Otherwise you will see a systemd error
