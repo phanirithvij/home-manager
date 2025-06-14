@@ -48,9 +48,10 @@ let
         description = "Don't load by default (load with :packadd)";
       };
 
-      plugin = mkOption {
-        type = types.package;
-        description = "vim plugin";
+      plugin = lib.mkPackageOption pkgs.vimPlugins "plugin" {
+        default = null;
+        example = "pkgs.vimPlugins.nvim-treesitter";
+        pkgsText = "pkgs.vimPlugins";
       };
 
       runtime = mkOption {
@@ -471,7 +472,7 @@ in
                   luaRcContent =
                     lib.optionalString (
                       wrappedNeovim'.initRc != ""
-                    ) "vim.cmd [[source ${pkgs.writeText "nvim-init-home-manager.vim" wrappedNeovim'.initRc}]]"
+                    ) "vim.cmd [[source ${pkgs.writeText "nvim-init-home-manager.vim" wrappedNeovim'.initRc}]]\n"
                     + config.programs.neovim.extraLuaConfig
                     + lib.optionalString hasLuaConfig config.programs.neovim.generatedConfigs.lua;
                 in

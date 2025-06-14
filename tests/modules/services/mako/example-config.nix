@@ -16,21 +16,57 @@
       layer = "top";
       margin = 10;
       markup = true;
-    };
 
-    criteria = {
       "actionable=true" = {
         anchor = "top-left";
       };
-
       "app-name=Google\\ Chrome" = {
         max-visible = 5;
       };
-
       "field1=value field2=value" = {
         text-alignment = "left";
       };
     };
+
+    extraConfig = ''
+      [urgency=low]
+      border-color=#CCCCCC
+
+      [urgency=normal]
+      border-color=#FFF700
+
+      [urgency=high]
+      border-color=#FF0000
+      default-timeout=0
+
+      [app-name=system-notify]
+      border-color=#FF0000
+      default-timeout=0
+
+      [summary~="Update"]
+      border-color=#0000FF
+      default-timeout=20000
+
+      [body~="Update"]
+      border-color=#0000FF
+      default-timeout=20000
+
+      [summary~=failed]
+      border-color=#FF0000
+      default-timeout=0
+
+      [summary~=error]
+      border-color=#FF0000
+      default-timeout=0
+
+      [body~=failed]
+      border-color=#FF0000
+      default-timeout=0
+
+      [body~=error]
+      border-color=#FF0000
+      default-timeout=0
+    '';
   };
 
   nmt.script = ''
