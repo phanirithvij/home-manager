@@ -29,7 +29,7 @@
   <div class="titlepage">
    <div>
    <div><h1 class="title"><a id="home-manager-manual"></a>Home Manager Manual</h1></div>
-   <div><h2 class="subtitle">Version 25.05 (unstable)</h2></div>
+   <div><h2 class="subtitle">Version 25.11 (unstable)</h2></div>
    </div>
    <hr />
   </div>
@@ -66,7 +66,7 @@ on how to perform this installation.</p></li><li class="listitem"><p>As a module
 user profiles to be built together with the system when running
 <code class="literal">nixos-rebuild</code>. See <a class="link" href="index.xhtml#sec-install-nixos-module" title="NixOS module" >NixOS module</a> for a
 description of this setup.</p></li><li class="listitem"><p>As a module within a
-<a class="link" href="https://github.com/LnL7/nix-darwin/"  target="_top">nix-darwin</a> system
+<a class="link" href="https://github.com/nix-darwin/nix-darwin/"  target="_top">nix-darwin</a> system
 configuration. This allows the user profiles to be built together
 with the system when running <code class="literal">darwin-rebuild</code>. See <a class="link" href="index.xhtml#sec-install-nix-darwin-module" title="nix-darwin module" >nix-darwin
 module</a> for a description of this
@@ -85,7 +85,7 @@ Nix option. On NixOS you can control this option using the
 system option.</p></li><li class="listitem"><p>Add the appropriate Home Manager channel. If you are following
 Nixpkgs master or an unstable channel you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 $ nix-channel --update
-</code></pre><p>and if you follow a Nixpkgs version 24.11 channel you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+</code></pre><p>and if you follow a Nixpkgs version 25.05 channel you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 $ nix-channel --update
 </code></pre></li><li class="listitem"><p>Run the Home Manager installation command and create the first Home
 Manager generation:</p><pre><code class="programlisting  shell">$ nix-shell &#x27;&lt;home-manager&gt;&#x27; -A install
@@ -114,7 +114,7 @@ your system configuration. This is most conveniently done by adding a
 Home Manager channel to the root user. For example, if you are following
 Nixpkgs master or an unstable channel, you can run</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 $ sudo nix-channel --update
-</code></pre><p>and if you follow a Nixpkgs version 24.11 channel, you can run</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+</code></pre><p>and if you follow a Nixpkgs version 25.05 channel, you can run</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 $ sudo nix-channel --update
 </code></pre><p>It is then possible to add</p><pre><code class="programlisting  nix">imports = [ &lt;home-manager/nixos&gt; ];
 </code></pre><p>to your system <code class="literal">configuration.nix</code> file, which will introduce a new
@@ -122,7 +122,7 @@ NixOS option called <code class="literal">home-manager.users</code> whose type i
 that maps user names to Home Manager configurations.</p><p>Alternatively, home-manager installation can be done declaratively through configuration.nix using the following syntax:</p><pre><code class="programlisting nix">{ config, pkgs, lib, ... }:
 
 let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
 in
 {
   imports =
@@ -137,7 +137,7 @@ in
   
     # The state version is required and should stay at the version you
     # originally installed.
-    home.stateVersion = &quot;24.11&quot;;
+    home.stateVersion = &quot;25.05&quot;;
   };
 }
 </code></pre><p>For example, a NixOS configuration may include the lines</p><pre><code class="programlisting  nix">users.users.eve.isNormalUser = true;
@@ -186,13 +186,13 @@ you create. This contains the system’s NixOS configuration.</p><pre><code clas
 description of Home Manager and how to use it.</p>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-install-nix-darwin-module" class="title" style="clear: both">nix-darwin module   </h2>  </div> </div></div><p>Home Manager provides a module that allows you to prepare user
 environments directly from the
-<a class="link" href="https://github.com/LnL7/nix-darwin/"  target="_top">nix-darwin</a> configuration file,
+<a class="link" href="https://github.com/nix-darwin/nix-darwin/"  target="_top">nix-darwin</a> configuration file,
 which often is more convenient than using the <code class="literal">home-manager</code> tool.</p><p>To make the NixOS module available for use you must <code class="literal">import</code> it into
 your system configuration. This is most conveniently done by adding a
 Home Manager channel. For example, if you are following Nixpkgs master
 or an unstable channel, you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 $ nix-channel --update
-</code></pre><p>and if you follow a Nixpkgs version 24.11 channel, you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+</code></pre><p>and if you follow a Nixpkgs version 25.05 channel, you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 $ nix-channel --update
 </code></pre><p>It is then possible to add</p><pre><code class="programlisting  nix">imports = [ &lt;home-manager/nix-darwin&gt; ];
 </code></pre><p>to your nix-darwin <code class="literal">configuration.nix</code> file, which will introduce a new
@@ -207,7 +207,7 @@ home-manager.users.eve = { pkgs, ... }: {
 
   # The state version is required and should stay at the version you
   # originally installed.
-  home.stateVersion = &quot;24.11&quot;;
+  home.stateVersion = &quot;25.05&quot;;
 };
 </code></pre><p>and after a <code class="literal">darwin-rebuild switch</code> the user eve’s environment should
 include a basic Bash configuration and the packages atool and httpie.</p><p>If you do not plan on having Home Manager manage your shell
@@ -279,7 +279,7 @@ command performs a combined build and activation.</p><div class="toc"> <p><stron
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = &quot;24.11&quot;;
+  home.stateVersion = &quot;25.05&quot;;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -311,7 +311,7 @@ follows:</p><pre><code class="programlisting  nix">{ config, pkgs, ... }:
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = &quot;24.11&quot;;
+  home.stateVersion = &quot;25.05&quot;;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -474,12 +474,7 @@ description of this setup.</p></li><li class="listitem"><p>This allows the user 
 when running <code class="literal">darwin-rebuild</code>. See <a class="link" href="index.xhtml#sec-flakes-nix-darwin-module" title="nix-darwin module" >nix-darwin
 module</a> for a description of this
 setup.</p></li></ol></div><div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-flakes-prerequisites">Prerequisites</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-standalone">Standalone setup</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nix-darwin-module">nix-darwin module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-flake-parts-module">flake-parts module</a> </span></dt> </dl></div></div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-prerequisites" class="title" style="clear: both">Prerequisites   </h2>  </div> </div></div><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Install Nix 2.4 or later, or have it in <code class="literal">nix-shell</code>.</p></li><li class="listitem"><p>Enable experimental features <code class="literal">nix-command</code> and <code class="literal">flakes</code>.</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: circle;"><li class="listitem"><p>When using NixOS, add the following to your <code class="literal">configuration.nix</code>
-and rebuild your system.</p><pre><code class="programlisting  nix">nix = {
-  package = pkgs.nixFlakes;
-  extraOptions = &#x27;&#x27;
-    experimental-features = nix-command flakes
-  &#x27;&#x27;;
-};
+and rebuild your system.</p><pre><code class="programlisting  nix">nix.settings.experimental-features = &quot;nix-command flakes&quot;;
 </code></pre></li><li class="listitem"><p>If you are not using NixOS, add the following to <code class="literal">nix.conf</code>
 (located at <code class="literal">~/.config/nix/</code> or <code class="literal">/etc/nix/nix.conf</code>).</p><pre><code class="programlisting  bash">experimental-features = nix-command flakes
 </code></pre><p>You may need to restart the Nix daemon with, for example,
@@ -494,14 +489,14 @@ introduction about writing a Home Manager configuration.</p></li></ul></div>
 user, you can run the Home Manager <code class="literal">init</code> command directly from its
 flake.</p><p>For example, if you are using the unstable version of Nixpkgs or NixOS,
 then to generate and activate a basic configuration run the command</p><pre><code class="programlisting  shell">$ nix run home-manager/master -- init --switch
-</code></pre><p>For Nixpkgs or NixOS version 24.11 run</p><pre><code class="programlisting  shell">$ nix run home-manager/release-24.11 -- init --switch
+</code></pre><p>For Nixpkgs or NixOS version 25.05 run</p><pre><code class="programlisting  shell">$ nix run home-manager/release-25.05 -- init --switch
 </code></pre><p>This will generate a <code class="literal">flake.nix</code> and a <code class="literal">home.nix</code> file in
 <code class="literal">~/.config/home-manager</code>, creating the directory if it does not exist.</p><p>If you omit the <code class="literal">--switch</code> option then the activation will not happen.
 This is useful if you want to inspect and edit the configuration before
 activating it.</p><pre><code class="programlisting  shell">$ nix run home-manager/$branch -- init
 $ # Edit files in ~/.config/home-manager
 $ nix run home-manager/$branch -- init --switch
-</code></pre><p>Where <code class="literal">$branch</code> is one of <code class="literal">master</code> or <code class="literal">release-24.11</code>.</p><p>After the initial activation has completed successfully then building
+</code></pre><p>Where <code class="literal">$branch</code> is one of <code class="literal">master</code> or <code class="literal">release-25.05</code>.</p><p>After the initial activation has completed successfully then building
 and activating your flake-based configuration is as simple as</p><pre><code class="programlisting  shell">$ home-manager switch
 </code></pre><p>It is possible to override the default configuration directory, if you
 want. For example,</p><pre><code class="programlisting  shell">$ nix run home-manager/$branch -- init --switch ~/hmconf
@@ -554,7 +549,7 @@ to that of NixOS. The <code class="literal">flake.nix</code> would be:</p><pre><
 
   inputs = {
     nixpkgs.url = &quot;github:nixos/nixpkgs/nixos-unstable&quot;;
-    darwin.url = &quot;github:lnl7/nix-darwin&quot;;
+    darwin.url = &quot;github:nix-darwin/nix-darwin&quot;;
     darwin.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
     home-manager.url = &quot;github:nix-community/home-manager&quot;;
     home-manager.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
@@ -778,7 +773,7 @@ programs.home-manager.path = &quot;$HOME/devel/home-manager&quot;;
 </code></pre><p>and running <code class="literal">home-manager switch</code> to activate the change.
 Afterwards, <code class="literal">home-manager build</code> and <code class="literal">home-manager switch</code> will use
 your cloned repository.</p></li></ol></div><p>The first option is good if you only temporarily want to use your clone.</p>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-guidelines" class="title" style="clear: both">Guidelines   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-guidelines-back-compat">Maintain backward compatibility</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-forward-compat">Keep forward compatibility in mind</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-valuable-options">Add only valuable options</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-add-tests">Add relevant tests</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-module-maintainer">Add relevant documentation</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_add_yourself_as_a_module_maintainer">Add yourself as a module maintainer</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-code-style">Format your code</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-commit-message-style">Format your commit messages</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-news-style">Format your news entries</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-conditional-modules">Use conditional modules and news</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-licensing">Mind the license</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-commit-style">Commits</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#ex-commit-message">Example commit</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-code-style">Code Style</a> </span></dt> </dl></div><p>If your contribution satisfy the following rules then there is a good
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-guidelines" class="title" style="clear: both">Guidelines   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-guidelines-back-compat">Maintain backward compatibility</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-forward-compat">Keep forward compatibility in mind</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-valuable-options">Add only valuable options</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-add-tests">Add relevant tests</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-module-maintainer">Add relevant documentation</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-module-auto-importing">Module Auto-importing</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_add_yourself_as_a_module_maintainer">Add yourself as a module maintainer</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-code-style">Format your code</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-commit-message-style">Format your commit messages</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-news-style">Format your news entries</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-conditional-modules">Use conditional modules and news</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines-licensing">Mind the license</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-commit-style">Commits</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#ex-commit-message">Example commit</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-code-style">Code Style</a> </span></dt> </dl></div><p>If your contribution satisfy the following rules then there is a good
 chance it will be merged without too much trouble. The rules are
 enforced by the Home Manager maintainers and to a lesser extent the Home
 Manager CI system.</p><p>If you are uncertain how these rules affect the change you would like to
@@ -827,6 +822,22 @@ $ xdg-open ./result/share/doc/home-manager/index.xhtml
 the man page version of the module options looks good:</p><pre><code class="programlisting  shell">$ nix-build -A docs.manPages
 $ man ./result/share/man/man5/home-configuration.nix.5.gz
 </code></pre>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-module-auto-importing" class="title" >Module Auto-importing   </h3>  </div> </div></div><p>Home Manager automatically imports all modules from the <code class="literal">modules/programs/</code> and
+<code class="literal">modules/services/</code> directories. This auto-importing behavior follows these
+rules:</p><div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc;"><li class="listitem"><p><span class="strong"><strong>Nix files</strong></span>: All <code class="literal">.nix</code> files in these directories are automatically
+imported</p></li><li class="listitem"><p><span class="strong"><strong>Directories</strong></span>: All subdirectories are automatically imported (typically
+containing a <code class="literal">default.nix</code> file)</p></li><li class="listitem"><p><span class="strong"><strong>Exclusions</strong></span>: Files and directories starting with an underscore (<code class="literal">_</code>) are
+excluded from auto-importing</p></li></ul></div><p>This allows for flexible module organization:</p><pre><code class="programlisting">modules/programs/
+├── git.nix              # Single-file module (imported)
+├── firefox/             # Multi-file module (imported)
+│   ├── default.nix
+│   └── addons.nix
+├── _experimental.nix    # Excluded (starts with _)
+└── _wip/                # Excluded directory (starts with _)
+    └── newfeature.nix
+</code></pre><p>When adding a new module, simply place it in the appropriate directory
+(<code class="literal">programs/</code> for user programs, <code class="literal">services/</code> for user services) and it will be
+automatically discovered and included in the Home Manager module system.</p>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="_add_yourself_as_a_module_maintainer" class="title" >Add yourself as a module maintainer   </h3>  </div> </div></div><p>Every new module <span class="emphasis"><em>must</em></span> include a named maintainer using the
 <code class="literal">meta.maintainers</code> attribute. If you are a user of a module that
 currently lacks a maintainer then please consider adopting it.</p><p>If you are present in the nixpkgs maintainer list then you can use that
