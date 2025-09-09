@@ -187,7 +187,7 @@ let
         # Generate manpages.
         mkdir -p $out/share/man/man5
         mkdir -p $out/share/man/man1
-        nixos-render-docs -j $NIX_BUILD_CORES options manpage \
+        nixos-render-docs options manpage \
           --revision ${revision} \
           --header ${./home-configuration-nix-header.5} \
           --footer ${./home-configuration-nix-footer.5} \
