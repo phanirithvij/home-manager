@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-c86aaba7.js";
+            window.path_to_searchindex_js = "searchindex-fdd94644.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-2bd0036d.js"></script>
+        <script src="toc-0f118724.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -2429,11 +2429,12 @@ but you should follow some basic guidelines:</p>
 with some placeholder information that you can edit.</p>
 </li>
 <li>
-<p>The entry condition should be as specific as possible. For example,
-if you are changing or deprecating a specific option then you could
-restrict the news to those users who actually use this option.
-Prefer a targeted condition over skipping useful news only to avoid
-notifying unaffected users.</p>
+<p>The entry condition should be as specific as possible for changes
+affecting existing functionality. For example, if you are changing
+or deprecating a specific option then you could restrict the news to
+those users who actually use this option. Prefer a targeted
+condition over skipping useful news only to avoid notifying
+unaffected users.</p>
 </li>
 <li>
 <p>Wrap the news message so that it will fit in the typical terminal,
@@ -2461,17 +2462,16 @@ use 'services.myservice.bar' instead.
 has a message along the lines of</p>
 <pre><code>A new module is available: 'services.foo'.
 </code></pre>
-<p>Since this news is specific to the module, its condition should use
-the module enable option to avoid spamming non-users of the module,
-for example <code>condition = config.services.foo.enable;</code>.</p>
+<p>Since this news announces newly available functionality, its
+condition should not require <code>config.services.foo.enable</code>; otherwise
+users who may want the new module will not see the news.</p>
 <p>If the module is platform specific, e.g., a service module using
 systemd, then a condition like</p>
 <pre><code class="language-nix">condition = hostPlatform.isLinux;
 </code></pre>
-<p>should be added, either by itself for platform-scoped news or in
-combination with the module enable option. Use the <code>create-news-entry</code>
-generator described above to scaffold this entry as part of your
-contribution.</p>
+<p>should be added to avoid showing the news on unsupported platforms.
+Use the <code>create-news-entry</code> generator described above to scaffold
+this entry as part of your contribution.</p>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
@@ -11815,6 +11815,7 @@ string</p>
 <li><a href="#dbeaver">dbeaver</a></li>
 <li><a href="#delta">delta</a></li>
 <li><a href="#desktoppr">desktoppr</a></li>
+<li><a href="#devenv">devenv</a></li>
 <li><a href="#diff-highlight">diff-highlight</a></li>
 <li><a href="#diff-so-fancy">diff-so-fancy</a></li>
 <li><a href="#difftastic">difftastic</a></li>
@@ -21040,6 +21041,85 @@ null or string matching the pattern ^[a-f0-9]{64}$</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/desktoppr.nix">&lt;home-manager/modules/programs/desktoppr.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="devenv"><a href="#devenv" class="header">devenv</a></h1>
+<h2 id="opt-programs.devenv.enable"><a class="header" href="#opt-programs.devenv.enable">programs.devenv.enable</a></h2>
+<p>Whether to enable devenv, Fast, Declarative, Reproducible and Composable Developer Environments using Nix.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/devenv.nix">&lt;home-manager/modules/programs/devenv.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.devenv.enableBashIntegration"><a class="header" href="#opt-programs.devenv.enableBashIntegration">programs.devenv.enableBashIntegration</a></h2>
+<p>Whether to enable Bash integration.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<a href="#opt-home.shell.enableBashIntegration"></a></p>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/devenv.nix">&lt;home-manager/modules/programs/devenv.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.devenv.enableFishIntegration"><a class="header" href="#opt-programs.devenv.enableFishIntegration">programs.devenv.enableFishIntegration</a></h2>
+<p>Whether to enable Fish integration.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<a href="#opt-home.shell.enableFishIntegration"></a></p>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/devenv.nix">&lt;home-manager/modules/programs/devenv.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.devenv.enableNushellIntegration"><a class="header" href="#opt-programs.devenv.enableNushellIntegration">programs.devenv.enableNushellIntegration</a></h2>
+<p>Whether to enable Nushell integration.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<a href="#opt-home.shell.enableNushellIntegration"></a></p>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/devenv.nix">&lt;home-manager/modules/programs/devenv.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.devenv.enableZshIntegration"><a class="header" href="#opt-programs.devenv.enableZshIntegration">programs.devenv.enableZshIntegration</a></h2>
+<p>Whether to enable Zsh integration.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<a href="#opt-home.shell.enableZshIntegration"></a></p>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/devenv.nix">&lt;home-manager/modules/programs/devenv.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.devenv.package"><a class="header" href="#opt-programs.devenv.package">programs.devenv.package</a></h2>
+<p>The devenv package to use.</p>
+<p><em>Type:</em>
+package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.devenv
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/devenv.nix">&lt;home-manager/modules/programs/devenv.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="diff-highlight"><a href="#diff-highlight" class="header">diff-highlight</a></h1>
 <h2 id="opt-programs.diff-highlight.enable"><a class="header" href="#opt-programs.diff-highlight.enable">programs.diff-highlight.enable</a></h2>
 <p>Enable the contrib <code>diff-highlight</code> syntax highlighter.
@@ -26652,6 +26732,19 @@ boolean</p>
 boolean</p>
 <p><em>Default:</em>
 <a href="#opt-home.shell.enableFishIntegration"></a></p>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.enableNushellIntegration"><a class="header" href="#opt-programs.fzf.enableNushellIntegration">programs.fzf.enableNushellIntegration</a></h2>
+<p>Whether to enable Nushell integration.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<a href="#opt-home.shell.enableNushellIntegration"></a></p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">false
 </code></pre>
@@ -64095,6 +64188,7 @@ null or string</p>
 <li><a href="#network-manager-applet">network-manager-applet</a></li>
 <li><a href="#nextcloud-client">nextcloud-client</a></li>
 <li><a href="#notify-osd">notify-osd</a></li>
+<li><a href="#nvibrant">nvibrant</a></li>
 <li><a href="#ollama">ollama</a></li>
 <li><a href="#opensnitch-ui">opensnitch-ui</a></li>
 <li><a href="#osmscout-server">osmscout-server</a></li>
@@ -71876,6 +71970,81 @@ package</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/notify-osd.nix">&lt;home-manager/modules/services/notify-osd.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nvibrant"><a href="#nvibrant" class="header">nvibrant</a></h1>
+<h2 id="opt-services.nvibrant.enable"><a class="header" href="#opt-services.nvibrant.enable">services.nvibrant.enable</a></h2>
+<p>Whether to enable nvibrant.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/nvibrant.nix">&lt;home-manager/modules/services/nvibrant.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.nvibrant.package"><a class="header" href="#opt-services.nvibrant.package">services.nvibrant.package</a></h2>
+<p>The nvibrant package to use.</p>
+<p><em>Type:</em>
+package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.nvibrant
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/nvibrant.nix">&lt;home-manager/modules/services/nvibrant.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.nvibrant.dithering"><a class="header" href="#opt-services.nvibrant.dithering">services.nvibrant.dithering</a></h2>
+<p>Whether to enable or disable dithering for your monitor(s).</p>
+<p>Values should match the order of physical ports on your GPU. If a null
+value is passed, nvibrant will default to false (even if a device is
+connected at that port).</p>
+<p>If you have multiple GPUs, you can pass a list of lists in order of
+device.</p>
+<p><em>Type:</em>
+list of (null or boolean or value “auto” (singular enum) or list of (null or boolean or value “auto” (singular enum)))</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  true   # HDMI
+  null   # DP1
+  false  # DP2
+]
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/nvibrant.nix">&lt;home-manager/modules/services/nvibrant.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.nvibrant.vibrancy"><a class="header" href="#opt-services.nvibrant.vibrancy">services.nvibrant.vibrancy</a></h2>
+<p>The vibrancy level for your monitor(s).</p>
+<p>Values should match the order of physical ports on your GPU. If a null
+value is passed, nvibrant will default to 100% (even if a device is
+connected at that port).</p>
+<p>If you have multiple GPUs, you can pass a list of lists in order of
+device.</p>
+<p><em>Type:</em>
+list of (null or percentage between 0% and 200% (both inclusive) or list of (null or percentage between 0% and 200% (both inclusive)))</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "0%"    # HDMI
+  null    # DP1
+  "200%"  # DP2
+]
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/nvibrant.nix">&lt;home-manager/modules/services/nvibrant.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="ollama"><a href="#ollama" class="header">ollama</a></h1>
