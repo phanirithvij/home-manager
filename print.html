@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fdd94644.js";
+            window.path_to_searchindex_js = "searchindex-073c4975.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0f118724.js"></script>
+        <script src="toc-5e32c50d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -9228,9 +9228,12 @@ boolean</p>
 <p><em>Type:</em>
 absolute path <em>(read only)</em></p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">"${home.homeDirectory}/.nix-profile"  or
-"/etc/profiles/per-user/${home.username}"
-
+<pre><code class="language-nix">''
+  - `/etc/profiles/per-user/''${home.username}`, if Home Manager is installed as
+    a submodule and `home-manager.useUserPackages` is enabled, else
+  - `''${xdg.stateHome}/nix/profile`, if `nix.useXdg` is enabled, else
+  - `''${home.homeDirectory}/.nix-profile`.
+''
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -11885,6 +11888,7 @@ string</p>
 <li><a href="#htop">htop</a></li>
 <li><a href="#hwatch">hwatch</a></li>
 <li><a href="#hyfetch">hyfetch</a></li>
+<li><a href="#hyprland-qt-support">hyprland-qt-support</a></li>
 <li><a href="#hyprlock">hyprlock</a></li>
 <li><a href="#hyprpanel">hyprpanel</a></li>
 <li><a href="#hyprshot">hyprshot</a></li>
@@ -30760,6 +30764,54 @@ JSON value</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyfetch.nix">&lt;home-manager/modules/programs/hyfetch.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="hyprland-qt-support"><a href="#hyprland-qt-support" class="header">hyprland-qt-support</a></h1>
+<h2 id="opt-programs.hyprland-qt-support.enable"><a class="header" href="#opt-programs.hyprland-qt-support.enable">programs.hyprland-qt-support.enable</a></h2>
+<p>Whether to enable Hyprland Qt support, a Qt6 QML style provider for hypr* apps.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprland-qt-support.nix">&lt;home-manager/modules/programs/hyprland-qt-support.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.hyprland-qt-support.package"><a class="header" href="#opt-programs.hyprland-qt-support.package">programs.hyprland-qt-support.package</a></h2>
+<p>The hyprland-qt-support package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.hyprland-qt-support
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprland-qt-support.nix">&lt;home-manager/modules/programs/hyprland-qt-support.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.hyprland-qt-support.settings"><a class="header" href="#opt-programs.hyprland-qt-support.settings">programs.hyprland-qt-support.settings</a></h2>
+<p>Hyprland Qt Support configuration written in Nix. See
+<a href="https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/">https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/</a> for more
+examples.</p>
+<p><em>Type:</em>
+Hyprland configuration value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  roundness = 1;
+  border_width = 1;
+  reduce_motion = false;
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprland-qt-support.nix">&lt;home-manager/modules/programs/hyprland-qt-support.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="hyprlock"><a href="#hyprlock" class="header">hyprlock</a></h1>
@@ -62288,6 +62340,83 @@ else
 strings concatenated with “\n”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting">programs.zsh.fastSyntaxHighlighting</a></h2>
+<p>Options related to zsh-fast-syntax-highlighting.</p>
+<p><em>Type:</em>
+submodule</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.enable"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.enable">programs.zsh.fastSyntaxHighlighting.enable</a></h2>
+<p>Whether to enable zsh fast syntax highlighting.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.package"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.package">programs.zsh.fastSyntaxHighlighting.package</a></h2>
+<p>The zsh-fast-syntax-highlighting package to use.</p>
+<p><em>Type:</em>
+package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.zsh-fast-syntax-highlighting
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.settings"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.settings">programs.zsh.fastSyntaxHighlighting.settings</a></h2>
+<p>Custom values to add to <code>FAST_HIGHLIGHT</code>, like custom chroma
+configuration (see <a href="https://github.com/zdharma-continuum/fast-syntax-highlighting/blob/master/CHROMA_GUIDE.adoc">upstream’s documentation</a>
+and its <a href="https://github.com/zdharma-continuum/fast-syntax-highlighting/tree/master/%E2%86%92chroma">built-in chromas</a>).</p>
+<p><em>Type:</em>
+attribute set of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  "chroma-," = "→chroma/-precommand.ch";
+  chroma-comma = "→chroma/-precommand.ch";
+  use_brackets = "0";
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.theme"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.theme">programs.zsh.fastSyntaxHighlighting.theme</a></h2>
+<p>If non-null, Home Manager will run <code>fast-theme -q</code>
+with this value to select the theme. <code>fast-theme</code> persists the
+selected theme in fast-syntax-highlighting’s work directory, so
+setting this option back to <code>null</code> stops Home Manager from
+invoking <code>fast-theme</code> but does not reset an already
+persisted theme. Run <code>fast-theme -r</code> manually to clear
+upstream state.</p>
+<p>See <a href="https://github.com/zdharma-continuum/fast-syntax-highlighting/blob/master/THEME_GUIDE.md">upstream’s documentation</a></p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"clean"
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
