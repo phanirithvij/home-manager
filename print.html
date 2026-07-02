@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-8f15749f.js";
+            window.path_to_searchindex_js = "searchindex-56b63656.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-504d7b3f.js"></script>
@@ -26860,7 +26860,40 @@ package</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.changeDirWidgetCommand"><a class="header" href="#opt-programs.fzf.changeDirWidgetCommand">programs.fzf.changeDirWidgetCommand</a></h2>
+<h2 id="opt-programs.fzf.changeDirWidget.bash.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.bash.command">programs.fzf.changeDirWidget.bash.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.bash.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.bash.options">programs.fzf.changeDirWidget.bash.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.command">programs.fzf.changeDirWidget.command</a></h2>
 <p>The command that gets executed as the source for fzf for the
 ALT-C keybinding.</p>
 <p><em>Type:</em>
@@ -26875,12 +26908,111 @@ null or string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.changeDirWidgetOptions"><a class="header" href="#opt-programs.fzf.changeDirWidgetOptions">programs.fzf.changeDirWidgetOptions</a></h2>
+<h2 id="opt-programs.fzf.changeDirWidget.fish.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.fish.command">programs.fzf.changeDirWidget.fish.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.fish.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.fish.options">programs.fzf.changeDirWidget.fish.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.nushell.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.nushell.command">programs.fzf.changeDirWidget.nushell.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.nushell.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.nushell.options">programs.fzf.changeDirWidget.nushell.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.options">programs.fzf.changeDirWidget.options</a></h2>
 <p>Command line options for the ALT-C keybinding.</p>
 <p><em>Type:</em>
 list of string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.zsh.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.zsh.command">programs.fzf.changeDirWidget.zsh.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.zsh.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.zsh.options">programs.fzf.changeDirWidget.zsh.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">[
@@ -26945,7 +27077,40 @@ list of string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.fileWidgetCommand"><a class="header" href="#opt-programs.fzf.fileWidgetCommand">programs.fzf.fileWidgetCommand</a></h2>
+<h2 id="opt-programs.fzf.fileWidget.bash.command"><a class="header" href="#opt-programs.fzf.fileWidget.bash.command">programs.fzf.fileWidget.bash.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.bash.options"><a class="header" href="#opt-programs.fzf.fileWidget.bash.options">programs.fzf.fileWidget.bash.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.command"><a class="header" href="#opt-programs.fzf.fileWidget.command">programs.fzf.fileWidget.command</a></h2>
 <p>The command that gets executed as the source for fzf for the
 CTRL-T keybinding.</p>
 <p><em>Type:</em>
@@ -26960,7 +27125,73 @@ null or string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.fileWidgetOptions"><a class="header" href="#opt-programs.fzf.fileWidgetOptions">programs.fzf.fileWidgetOptions</a></h2>
+<h2 id="opt-programs.fzf.fileWidget.fish.command"><a class="header" href="#opt-programs.fzf.fileWidget.fish.command">programs.fzf.fileWidget.fish.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.fish.options"><a class="header" href="#opt-programs.fzf.fileWidget.fish.options">programs.fzf.fileWidget.fish.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.nushell.command"><a class="header" href="#opt-programs.fzf.fileWidget.nushell.command">programs.fzf.fileWidget.nushell.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.nushell.options"><a class="header" href="#opt-programs.fzf.fileWidget.nushell.options">programs.fzf.fileWidget.nushell.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.options"><a class="header" href="#opt-programs.fzf.fileWidget.options">programs.fzf.fileWidget.options</a></h2>
 <p>Command line options for the CTRL-T keybinding.</p>
 <p><em>Type:</em>
 list of string</p>
@@ -26976,12 +27207,200 @@ list of string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.historyWidgetOptions"><a class="header" href="#opt-programs.fzf.historyWidgetOptions">programs.fzf.historyWidgetOptions</a></h2>
+<h2 id="opt-programs.fzf.fileWidget.zsh.command"><a class="header" href="#opt-programs.fzf.fileWidget.zsh.command">programs.fzf.fileWidget.zsh.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.zsh.options"><a class="header" href="#opt-programs.fzf.fileWidget.zsh.options">programs.fzf.fileWidget.zsh.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.bash.command"><a class="header" href="#opt-programs.fzf.historyWidget.bash.command">programs.fzf.historyWidget.bash.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.bash.options"><a class="header" href="#opt-programs.fzf.historyWidget.bash.options">programs.fzf.historyWidget.bash.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.command"><a class="header" href="#opt-programs.fzf.historyWidget.command">programs.fzf.historyWidget.command</a></h2>
+<p>The command that gets executed as the source for fzf for the
+CTRL-R keybinding.</p>
+<p>An empty string disables the CTRL-R binding, which is the supported
+way to yield CTRL-R to a history manager such as Atuin or McFly.
+Non-empty custom commands require fzf 0.66.0 or later but are not
+supported by fzf yet and currently print a shell startup warning.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.fish.command"><a class="header" href="#opt-programs.fzf.historyWidget.fish.command">programs.fzf.historyWidget.fish.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.fish.options"><a class="header" href="#opt-programs.fzf.historyWidget.fish.options">programs.fzf.historyWidget.fish.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.nushell.command"><a class="header" href="#opt-programs.fzf.historyWidget.nushell.command">programs.fzf.historyWidget.nushell.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.nushell.options"><a class="header" href="#opt-programs.fzf.historyWidget.nushell.options">programs.fzf.historyWidget.nushell.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.options"><a class="header" href="#opt-programs.fzf.historyWidget.options">programs.fzf.historyWidget.options</a></h2>
 <p>Command line options for the CTRL-R keybinding.</p>
 <p><em>Type:</em>
 list of string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.zsh.command"><a class="header" href="#opt-programs.fzf.historyWidget.zsh.command">programs.fzf.historyWidget.zsh.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.zsh.options"><a class="header" href="#opt-programs.fzf.historyWidget.zsh.options">programs.fzf.historyWidget.zsh.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">[
