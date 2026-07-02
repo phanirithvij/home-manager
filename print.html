@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e7da0f57.js";
+            window.path_to_searchindex_js = "searchindex-8f15749f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-504d7b3f.js"></script>
@@ -8760,13 +8760,13 @@ null or strings concatenated with “\n”</p>
 </ul>
 <h2 id="opt-home.homeDirectory"><a class="header" href="#opt-home.homeDirectory">home.homeDirectory</a></h2>
 <p>The user’s home directory. Must be an absolute path.</p>
+<p>If Home Manager is installed as a NixOS or nix-darwin submodule, it is
+set to <code>osConfig.users.users.&lt;name&gt;.home</code>.</p>
 <p><em>Type:</em>
 absolute path</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">"$HOME"   for state version &lt; 20.09,
-undefined for state version ≥ 20.09
-
-</code></pre>
+<p><em>Default:</em>
+<code>$HOME</code>,   for state version &lt; 20.09
+undefined, otherwise.</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"/home/jane.doe"
 </code></pre>
@@ -9228,13 +9228,12 @@ boolean</p>
 <p><em>Type:</em>
 absolute path <em>(read only)</em></p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">''
-  - `/etc/profiles/per-user/''${home.username}`, if Home Manager is installed as
-    a submodule and `home-manager.useUserPackages` is enabled, else
-  - `''${xdg.stateHome}/nix/profile`, if `nix.useXdg` is enabled, else
-  - `''${home.homeDirectory}/.nix-profile`.
-''
-</code></pre>
+<ul>
+<li><code>/etc/profiles/per-user/${home.username}</code>, if Home Manager is installed as
+a submodule and <code>home-manager.useUserPackages</code> is enabled, else</li>
+<li><code>${xdg.stateHome}/nix/profile</code>, if <code>nix.useXdg</code> is enabled, else</li>
+<li><code>${home.homeDirectory}/.nix-profile</code>.</li>
+</ul>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix">&lt;home-manager/modules/home-environment.nix&gt;</a></li>
@@ -9473,6 +9472,8 @@ one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03
 </ul>
 <h2 id="opt-home.uid"><a class="header" href="#opt-home.uid">home.uid</a></h2>
 <p>The user’s uid.</p>
+<p>If Home Manager is installed as a NixOS or nix-darwin submodule, it is
+set to <code>osConfig.users.users.&lt;name&gt;.uid</code>.</p>
 <p><em>Type:</em>
 null or (unsigned integer, meaning &gt;=0)</p>
 <p><em>Default:</em></p>
@@ -9487,13 +9488,13 @@ null or (unsigned integer, meaning &gt;=0)</p>
 </ul>
 <h2 id="opt-home.username"><a class="header" href="#opt-home.username">home.username</a></h2>
 <p>The user’s username.</p>
+<p>If Home Manager is installed as a NixOS or nix-darwin submodule, it is
+set to <code>osConfig.users.users.&lt;name&gt;.name</code>.</p>
 <p><em>Type:</em>
-string</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">"$USER"   for state version &lt; 20.09,
-undefined for state version ≥ 20.09
-
-</code></pre>
+non-empty string</p>
+<p><em>Default:</em>
+<code>$USER</code>,   for state version &lt; 20.09,
+undefined, otherwise.</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"jane.doe"
 </code></pre>
