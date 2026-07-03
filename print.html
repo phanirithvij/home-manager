@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-56b63656.js";
+            window.path_to_searchindex_js = "searchindex-55f6ffc9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-504d7b3f.js"></script>
@@ -66319,101 +66319,21 @@ null or package</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
 </ul>
-<h2 id="opt-services.clipse.allowDuplicates"><a class="header" href="#opt-services.clipse.allowDuplicates">services.clipse.allowDuplicates</a></h2>
-<p>Allow duplicates</p>
-<p><em>Type:</em>
-boolean</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">false
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.historySize"><a class="header" href="#opt-services.clipse.historySize">services.clipse.historySize</a></h2>
-<p>Number of history lines to keep.</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">100
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.heightCut"><a class="header" href="#opt-services.clipse.imageDisplay.heightCut">services.clipse.imageDisplay.heightCut</a></h2>
-<p>Height cut</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">2
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.scaleX"><a class="header" href="#opt-services.clipse.imageDisplay.scaleX">services.clipse.imageDisplay.scaleX</a></h2>
-<p>Image scaling factor X</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">9
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.scaleY"><a class="header" href="#opt-services.clipse.imageDisplay.scaleY">services.clipse.imageDisplay.scaleY</a></h2>
-<p>Image scaling factor Y</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">9
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.type"><a class="header" href="#opt-services.clipse.imageDisplay.type">services.clipse.imageDisplay.type</a></h2>
-<p>Preview image method</p>
-<p><em>Type:</em>
-one of “basic”, “kitty”, “sixel”</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">"basic"
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.keyBindings"><a class="header" href="#opt-services.clipse.keyBindings">services.clipse.keyBindings</a></h2>
-<p>Custom key bindings</p>
+<h2 id="opt-services.clipse.settings"><a class="header" href="#opt-services.clipse.settings">services.clipse.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/clipse/config.json</code></p>
+<p>Please refer to <a href="https://github.com/savedra1/clipse#configuration">https://github.com/savedra1/clipse#configuration</a> for
+more information.</p>
 <p><em>Type:</em>
 JSON value</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Example:</em></p>
-<pre><code class="language-nix"> {
-   "choose" = "enter";
-   "clearSelected" = "S";
-   "down" = "down";
-   "end" = "end";
-   "filter" = "/";
-   "home" = "home";
-   "more" = "?";
-   "nextPage" = "right";
-   "prevPage" = "left";
-   "preview" = "t";
-   "quit" = "q";
-   "remove" = "x";
-   "selectDown" = "ctrl+down";
-   "selectSingle" = "s";
-   "selectUp" = "ctrl+up";
-   "togglePin" = "p";
-   "togglePinned" = "tab";
-   "up" = "up";
-   "yankFilter" = "ctrl+s";
-};
+<pre><code class="language-nix">{
+  allowDuplicates = true;
+  maxHistory = 1001;
+}
 
 </code></pre>
 <p><em>Declared by:</em></p>
@@ -66441,7 +66361,7 @@ string</p>
 <p>Configuration written to
 <code>$XDG_CONFIG_HOME/clipse/custom_theme.json</code>.</p>
 <p><em>Type:</em>
-JSON value</p>
+JSON value or absolute path</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{
   useCustomTheme = false;
