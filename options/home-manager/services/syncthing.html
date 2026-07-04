@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-55f6ffc9.js";
+            window.path_to_searchindex_js = "../../../searchindex-8966acf2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-504d7b3f.js"></script>
@@ -514,6 +514,31 @@ list of (string or (open submodule of (JSON value)))</p>
 string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">"‹name›"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix">&lt;home-manager/modules/services/syncthing.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.syncthing.settings.folders._name_.ignorePatterns"><a class="header" href="#opt-services.syncthing.settings.folders._name_.ignorePatterns">services.syncthing.settings.folders.&lt;name&gt;.ignorePatterns</a></h2>
+<p>Syncthing can be configured to ignore certain files in a folder using ignore patterns.
+Enter them as a list of strings, one string per line.
+See the Syncthing documentation for syntax: <a href="https://docs.syncthing.net/users/ignoring.html">https://docs.syncthing.net/users/ignoring.html</a>
+Patterns set using the WebUI will be overridden if you define this option.
+If you want to override the ignore patterns to be empty, use <code>ignorePatterns = []</code>.
+Deleting the <code>ignorePatterns</code> option will not remove the patterns from Syncthing automatically
+because patterns are only handled by the module if this option is defined. Either use
+<code>ignorePatterns = []</code> before deleting the option or remove the patterns afterwards using the WebUI.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "// This is a comment"
+  "*.part // Firefox downloads and other things"
+  "*.crdownload // Chrom(ium|e) downloads"
+]
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
