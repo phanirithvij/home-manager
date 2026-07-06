@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-15dd40ef.js";
+            window.path_to_searchindex_js = "../../../searchindex-ce28c266.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-504d7b3f.js"></script>
@@ -267,14 +267,23 @@ null or strings concatenated with “\n” or absolute path</p>
 </ul>
 <h2 id="opt-programs.codex.hooks"><a class="header" href="#opt-programs.codex.hooks">programs.codex.hooks</a></h2>
 <p>Lifecycle hook events written to <code>CODEX_HOME/hooks.json</code>.</p>
-<p>This option uses the same event structure as
-<code>programs.codex.settings.hooks</code> and writes it under the
+<p>This option can either be a hook event attribute set, a path to a
+complete hooks JSON file, or a path to a hook bundle directory
+containing <code>hooks.json</code> and supporting hook scripts.</p>
+<p>Attribute set values use the same event structure as
+<code>programs.codex.settings.hooks</code> and are written under the
 top-level <code>hooks</code> key expected by Codex’s JSON hooks file.</p>
+<p>Directory values install <code>hooks.json</code> to
+<code>CODEX_HOME/hooks.json</code> and install the full directory to
+<code>CODEX_HOME/hooks</code> so commands can reference bundled scripts.
+When <code>home.preferXdgDirectories</code> is enabled, the hook
+directory is also installed to <code>~/.codex/hooks</code> for upstream
+compatibility.</p>
 <p>Hooks can also be configured inline through
 <code>programs.codex.settings.hooks</code>; prefer using only one hook
 representation per layer.</p>
 <p><em>Type:</em>
-JSON value</p>
+JSON value or absolute path</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{ }
 </code></pre>

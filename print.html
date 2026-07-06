@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-15dd40ef.js";
+            window.path_to_searchindex_js = "searchindex-ce28c266.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-504d7b3f.js"></script>
@@ -11120,7 +11120,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-meta.teams"><a class="header" href="#opt-meta.teams">meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -11135,7 +11135,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="news-1"><a href="#news-1" class="header">news</a></h1>
@@ -19988,14 +19988,23 @@ null or strings concatenated with “\n” or absolute path</p>
 </ul>
 <h2 id="opt-programs.codex.hooks"><a class="header" href="#opt-programs.codex.hooks">programs.codex.hooks</a></h2>
 <p>Lifecycle hook events written to <code>CODEX_HOME/hooks.json</code>.</p>
-<p>This option uses the same event structure as
-<code>programs.codex.settings.hooks</code> and writes it under the
+<p>This option can either be a hook event attribute set, a path to a
+complete hooks JSON file, or a path to a hook bundle directory
+containing <code>hooks.json</code> and supporting hook scripts.</p>
+<p>Attribute set values use the same event structure as
+<code>programs.codex.settings.hooks</code> and are written under the
 top-level <code>hooks</code> key expected by Codex’s JSON hooks file.</p>
+<p>Directory values install <code>hooks.json</code> to
+<code>CODEX_HOME/hooks.json</code> and install the full directory to
+<code>CODEX_HOME/hooks</code> so commands can reference bundled scripts.
+When <code>home.preferXdgDirectories</code> is enabled, the hook
+directory is also installed to <code>~/.codex/hooks</code> for upstream
+compatibility.</p>
 <p>Hooks can also be configured inline through
 <code>programs.codex.settings.hooks</code>; prefer using only one hook
 representation per layer.</p>
 <p><em>Type:</em>
-JSON value</p>
+JSON value or absolute path</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{ }
 </code></pre>
@@ -23431,7 +23440,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.meta.teams">programs.firefox.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23446,7 +23455,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.settings">programs.firefox.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -23821,7 +23830,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.meta.teams">programs.firefox.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23836,7 +23845,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.mimeTypes">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -24229,7 +24238,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.search.meta.teams">programs.firefox.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -24244,7 +24253,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.order"><a class="header" href="#opt-programs.firefox.profiles._name_.search.order">programs.firefox.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -25466,7 +25475,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.meta.teams">programs.floorp.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25481,7 +25490,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.settings">programs.floorp.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -25856,7 +25865,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.meta.teams">programs.floorp.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25871,7 +25880,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.mimeTypes">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -26264,7 +26273,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.search.meta.teams">programs.floorp.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -26279,7 +26288,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.order"><a class="header" href="#opt-programs.floorp.profiles._name_.search.order">programs.floorp.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -37022,7 +37031,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.meta.teams">programs.librewolf.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37037,7 +37046,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.settings">programs.librewolf.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -37412,7 +37421,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.meta.teams">programs.librewolf.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37427,7 +37436,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.mimeTypes">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -37820,7 +37829,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.meta.teams">programs.librewolf.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37835,7 +37844,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.order"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.order">programs.librewolf.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -55732,7 +55741,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.meta.teams">programs.thunderbird.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -55747,7 +55756,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix">/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.order"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.order">programs.thunderbird.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -70417,6 +70426,10 @@ null or boolean</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">true
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.alias"><a class="header" href="#opt-services.kanshi.settings._.output.alias">services.kanshi.settings.*.output.alias</a></h2>
 <p>Defines an alias for the output</p>
 <p><em>Type:</em>
@@ -70427,6 +70440,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"laptopMonitor"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.criteria"><a class="header" href="#opt-services.kanshi.settings._.output.criteria">services.kanshi.settings.*.output.criteria</a></h2>
 <p>The criteria can either be an output name, an output description or “*”.
 The latter can be used to match any output.</p>
@@ -70436,6 +70453,10 @@ output names and descriptions can be obtained via
 <code>swaymsg -t get_outputs</code>.</p>
 <p><em>Type:</em>
 string</p>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.mode"><a class="header" href="#opt-services.kanshi.settings._.output.mode">services.kanshi.settings.*.output.mode</a></h2>
 <p>&lt;width&gt;x&lt;height&gt;[@&lt;rate&gt;[Hz]]</p>
 <p>Configures the specified output to use the specified mode.
@@ -70449,6 +70470,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1920x1080@60Hz"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.position"><a class="header" href="#opt-services.kanshi.settings._.output.position">services.kanshi.settings.*.output.position</a></h2>
 <p>&lt;x&gt;,&lt;y&gt;</p>
 <p>Places the output at the specified position in the global coordinates
@@ -70461,6 +70486,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1600,0"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.scale"><a class="header" href="#opt-services.kanshi.settings._.output.scale">services.kanshi.settings.*.output.scale</a></h2>
 <p>Scales the output by the specified scale factor.</p>
 <p><em>Type:</em>
@@ -70471,6 +70500,10 @@ null or floating point number</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">2
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.status"><a class="header" href="#opt-services.kanshi.settings._.output.status">services.kanshi.settings.*.output.status</a></h2>
 <p>Enables or disables the specified output.</p>
 <p><em>Type:</em>
@@ -70478,6 +70511,10 @@ null or one of “enable”, “disable”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.transform"><a class="header" href="#opt-services.kanshi.settings._.output.transform">services.kanshi.settings.*.output.transform</a></h2>
 <p>Sets the output transform.</p>
 <p><em>Type:</em>
@@ -70485,6 +70522,10 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile"><a class="header" href="#opt-services.kanshi.settings._.profile">services.kanshi.settings.*.profile</a></h2>
 <p>profile attribute set.</p>
 <p><em>Type:</em>
@@ -70505,6 +70546,10 @@ executed asynchronously with no guaranteed ordering.</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"[ \${pkg.sway}/bin/swaymsg workspace 1, move workspace to eDP-1 ]"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.name"><a class="header" href="#opt-services.kanshi.settings._.profile.name">services.kanshi.settings.*.profile.name</a></h2>
 <p>Profile name</p>
 <p><em>Type:</em>
@@ -70512,6 +70557,10 @@ string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">""
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs">services.kanshi.settings.*.profile.outputs</a></h2>
 <p>Outputs configuration.</p>
 <p><em>Type:</em>
@@ -70519,6 +70568,10 @@ list of (submodule)</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">[ ]
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.adaptiveSync"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.adaptiveSync">services.kanshi.settings.*.profile.outputs.*.adaptiveSync</a></h2>
 <p>Enables or disables adaptive synchronization
 (aka. Variable Refresh Rate).</p>
@@ -70530,6 +70583,10 @@ null or boolean</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">true
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.alias"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.alias">services.kanshi.settings.*.profile.outputs.*.alias</a></h2>
 <p>Defines an alias for the output</p>
 <p><em>Type:</em>
@@ -70540,6 +70597,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"laptopMonitor"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.criteria"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.criteria">services.kanshi.settings.*.profile.outputs.*.criteria</a></h2>
 <p>The criteria can either be an output name, an output description or “*”.
 The latter can be used to match any output.</p>
@@ -70549,6 +70610,10 @@ output names and descriptions can be obtained via
 <code>swaymsg -t get_outputs</code>.</p>
 <p><em>Type:</em>
 string</p>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.mode"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.mode">services.kanshi.settings.*.profile.outputs.*.mode</a></h2>
 <p>&lt;width&gt;x&lt;height&gt;[@&lt;rate&gt;[Hz]]</p>
 <p>Configures the specified output to use the specified mode.
@@ -70562,6 +70627,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1920x1080@60Hz"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.position"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.position">services.kanshi.settings.*.profile.outputs.*.position</a></h2>
 <p>&lt;x&gt;,&lt;y&gt;</p>
 <p>Places the output at the specified position in the global coordinates
@@ -70574,6 +70643,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1600,0"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.scale"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.scale">services.kanshi.settings.*.profile.outputs.*.scale</a></h2>
 <p>Scales the output by the specified scale factor.</p>
 <p><em>Type:</em>
@@ -70584,6 +70657,10 @@ null or floating point number</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">2
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.status"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.status">services.kanshi.settings.*.profile.outputs.*.status</a></h2>
 <p>Enables or disables the specified output.</p>
 <p><em>Type:</em>
@@ -70591,6 +70668,10 @@ null or one of “enable”, “disable”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.transform"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.transform">services.kanshi.settings.*.profile.outputs.*.transform</a></h2>
 <p>Sets the output transform.</p>
 <p><em>Type:</em>
@@ -70598,6 +70679,10 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.systemdTarget"><a class="header" href="#opt-services.kanshi.systemdTarget">services.kanshi.systemdTarget</a></h2>
 <p>Systemd target to bind to.</p>
 <p><em>Type:</em>
