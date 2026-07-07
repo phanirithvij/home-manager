@@ -109,7 +109,7 @@ in
     xdg.configFile = {
       "clipse/config.json".source = jsonFormat.generate "settings" cfg.settings;
       "clipse/custom_theme.json".source =
-        if lib.isPath cfg.theme then cfg.theme else jsonFormat.generate "theme" cfg.theme;
+        if lib.hm.strings.isPathLike cfg.theme then cfg.theme else jsonFormat.generate "theme" cfg.theme;
     };
 
     systemd.user.services.clipse = lib.mkIf (cfg.package != null) {
