@@ -10,7 +10,7 @@ let
   tomlFormat = pkgs.formats.toml { };
 in
 {
-  meta.maintainers = [ ];
+  meta.maintainers = with lib.maintainers; [ ratakor ];
 
   options.services.elephant = {
     enable = lib.mkEnableOption "elephant";

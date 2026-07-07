@@ -18,6 +18,7 @@ let
   tomlFormat = pkgs.formats.toml { };
 in
 {
+  meta.maintainers = with lib.maintainers; [ ratakor ];
 
   options.services.walker = {
     enable = mkEnableOption "walker";
