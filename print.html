@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-ce28c266.js";
+            window.path_to_searchindex_js = "searchindex-11a2eaa3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-504d7b3f.js"></script>
+        <script src="toc-71ea5c9e.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -11799,6 +11799,7 @@ string</p>
 <li><a href="#ashell">ashell</a></li>
 <li><a href="#astroid">astroid</a></li>
 <li><a href="#atool">atool</a></li>
+<li><a href="#attic-client">attic-client</a></li>
 <li><a href="#atuin">atuin</a></li>
 <li><a href="#autojump">autojump</a></li>
 <li><a href="#autorandr">autorandr</a></li>
@@ -16119,6 +16120,74 @@ attribute set of (string or signed integer)</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix">&lt;home-manager/modules/programs/atool.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="attic-client"><a href="#attic-client" class="header">attic-client</a></h1>
+<h2 id="opt-programs.attic-client.enable"><a class="header" href="#opt-programs.attic-client.enable">programs.attic-client.enable</a></h2>
+<p>Whether to enable the attic binary cache client.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.attic-client.package"><a class="header" href="#opt-programs.attic-client.package">programs.attic-client.package</a></h2>
+<p>The attic-client package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.attic-client
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.attic-client.settings"><a class="header" href="#opt-programs.attic-client.settings">programs.attic-client.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/attic/config.toml</code>.</p>
+<p>See <a href="https://github.com/zhaofengli/attic">https://github.com/zhaofengli/attic</a> for the available options.</p>
+<p><em>Type:</em>
+TOML value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  default-server = "myserver";
+  servers.myserver = {
+    endpoint = "https://myserver.org";
+    token-file = "/run/secrets/attic-token";
+  };
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.attic-client.watchStore"><a class="header" href="#opt-programs.attic-client.watchStore">programs.attic-client.watchStore</a></h2>
+<p>Caches to push new store paths to via <code>attic watch-store</code>.
+Format: <code>server:cache</code> (or just <code>cache</code> to use the default server).</p>
+<p>This relies on systemd and is only supported on Linux.</p>
+<p><em>Type:</em>
+list of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "mycacheserver:mycache"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="atuin"><a href="#atuin" class="header">atuin</a></h1>
