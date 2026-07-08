@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-11a2eaa3.js";
+            window.path_to_searchindex_js = "../../../searchindex-d1014f9a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-71ea5c9e.js"></script>
@@ -275,10 +275,11 @@ containing <code>hooks.json</code> and supporting hook scripts.</p>
 top-level <code>hooks</code> key expected by Codex’s JSON hooks file.</p>
 <p>Directory values install <code>hooks.json</code> to
 <code>CODEX_HOME/hooks.json</code> and install the full directory to
-<code>CODEX_HOME/hooks</code> so commands can reference bundled scripts.
-When <code>home.preferXdgDirectories</code> is enabled, the hook
-directory is also installed to <code>~/.codex/hooks</code> for upstream
-compatibility.</p>
+the active Codex home hooks directory. In the default layout, commands
+can reference bundled scripts with paths such as
+<code>$HOME/.codex/hooks/my-hook</code>. When
+<code>home.preferXdgDirectories</code> is enabled, use
+<code>$CODEX_HOME/hooks/my-hook</code>.</p>
 <p>Hooks can also be configured inline through
 <code>programs.codex.settings.hooks</code>; prefer using only one hook
 representation per layer.</p>

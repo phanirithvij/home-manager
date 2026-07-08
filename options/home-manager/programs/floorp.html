@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-11a2eaa3.js";
+            window.path_to_searchindex_js = "../../../searchindex-d1014f9a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-71ea5c9e.js"></script>
@@ -1290,6 +1290,23 @@ attribute set of (Floorp preference (int, bool, string, and also attrs, list, fl
   }];
 }
 
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix">&lt;home-manager/modules/programs/floorp.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.floorp.profiles._name_.storeId"><a class="header" href="#opt-programs.floorp.profiles._name_.storeId">programs.floorp.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>

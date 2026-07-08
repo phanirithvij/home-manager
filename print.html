@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-11a2eaa3.js";
+            window.path_to_searchindex_js = "searchindex-d1014f9a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-71ea5c9e.js"></script>
@@ -9008,9 +9008,9 @@ For example, <a href="#opt-home.pointerCursor.gtk.enable"></a> will generate
 the gtk cursor configuration, but <a href="#opt-gtk.enable"></a> needs
 to be set for it to be applied.</p>
 <p><em>Type:</em>
-null or (submodule)</p>
+submodule</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">null
+<pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -20065,10 +20065,11 @@ containing <code>hooks.json</code> and supporting hook scripts.</p>
 top-level <code>hooks</code> key expected by Codex’s JSON hooks file.</p>
 <p>Directory values install <code>hooks.json</code> to
 <code>CODEX_HOME/hooks.json</code> and install the full directory to
-<code>CODEX_HOME/hooks</code> so commands can reference bundled scripts.
-When <code>home.preferXdgDirectories</code> is enabled, the hook
-directory is also installed to <code>~/.codex/hooks</code> for upstream
-compatibility.</p>
+the active Codex home hooks directory. In the default layout, commands
+can reference bundled scripts with paths such as
+<code>$HOME/.codex/hooks/my-hook</code>. When
+<code>home.preferXdgDirectories</code> is enabled, use
+<code>$CODEX_HOME/hooks/my-hook</code>.</p>
 <p>Hooks can also be configured inline through
 <code>programs.codex.settings.hooks</code>; prefer using only one hook
 representation per layer.</p>
@@ -24386,6 +24387,23 @@ attribute set of (Firefox preference (int, bool, string, and also attrs, list, f
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox">&lt;home-manager/modules/programs/firefox&gt;</a></li>
 </ul>
+<h2 id="opt-programs.firefox.profiles._name_.storeId"><a class="header" href="#opt-programs.firefox.profiles._name_.storeId">programs.firefox.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox">&lt;home-manager/modules/programs/firefox&gt;</a></li>
+</ul>
 <h2 id="opt-programs.firefox.profiles._name_.userChrome"><a class="header" href="#opt-programs.firefox.profiles._name_.userChrome">programs.firefox.profiles.&lt;name&gt;.userChrome</a></h2>
 <p>Custom Firefox user chrome CSS.</p>
 <p><em>Type:</em>
@@ -26416,6 +26434,23 @@ attribute set of (Floorp preference (int, bool, string, and also attrs, list, fl
   }];
 }
 
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix">&lt;home-manager/modules/programs/floorp.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.floorp.profiles._name_.storeId"><a class="header" href="#opt-programs.floorp.profiles._name_.storeId">programs.floorp.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -37972,6 +38007,23 @@ attribute set of (LibreWolf preference (int, bool, string, and also attrs, list,
   }];
 }
 
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix">&lt;home-manager/modules/programs/librewolf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.librewolf.profiles._name_.storeId"><a class="header" href="#opt-programs.librewolf.profiles._name_.storeId">programs.librewolf.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -88722,38 +88774,6 @@ boolean</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/misc/numlock.nix">&lt;home-manager/modules/misc/numlock.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.package"><a class="header" href="#opt-xsession.pointerCursor.package">xsession.pointerCursor.package</a></h2>
-<p>Alias of <code>home.pointerCursor.package</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.defaultCursor"><a class="header" href="#opt-xsession.pointerCursor.defaultCursor">xsession.pointerCursor.defaultCursor</a></h2>
-<p>Alias of <code>home.pointerCursor.x11.defaultCursor</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.name"><a class="header" href="#opt-xsession.pointerCursor.name">xsession.pointerCursor.name</a></h2>
-<p>Alias of <code>home.pointerCursor.name</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.size"><a class="header" href="#opt-xsession.pointerCursor.size">xsession.pointerCursor.size</a></h2>
-<p>Alias of <code>home.pointerCursor.size</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
 </ul>
 <h2 id="opt-xsession.preferStatusNotifierItems"><a class="header" href="#opt-xsession.preferStatusNotifierItems">xsession.preferStatusNotifierItems</a></h2>
 <p>Whether tray applets should prefer using the Status Notifier
