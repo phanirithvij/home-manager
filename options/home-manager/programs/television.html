@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-b48932e8.js";
+            window.path_to_searchindex_js = "../../../searchindex-7543472e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-a22c24be.js"></script>
@@ -298,6 +298,20 @@ attribute set of (TOML value)</p>
     };
   };
 }
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/television.nix">&lt;home-manager/modules/programs/television.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.television.extraPackages"><a class="header" href="#opt-programs.television.extraPackages">programs.television.extraPackages</a></h2>
+<p>Extra packages available to television.</p>
+<p><em>Type:</em>
+list of package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">with pkgs; [ fd bat ripgrep ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">with pkgs; [ eza ]
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
