@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-7543472e.js";
+            window.path_to_searchindex_js = "../../../searchindex-b14a242a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-a22c24be.js"></script>
@@ -368,6 +368,10 @@ See <a href="https://opencode.ai/docs/config/">https://opencode.ai/docs/config/<
 <code>lib.hm.dag.entryAfter</code> values are rendered in topological order, with
 raw sibling values treated as unordered entries. This is useful for
 OpenCode permission rules, where the last matching rule wins.</p>
+<p>The <code>plugin</code> key accepts a list of plugin references: local paths to
+plugin directories or files, derivations (e.g. <code>fetchFromGitHub</code>),
+string paths into derivations, or names of external plugins fetched and
+built by OpenCode.</p>
 <p>Note, <code>"$schema": "https://opencode.ai/config.json"</code> is automatically added to the configuration.</p>
 <p><em>Type:</em>
 JSON value</p>

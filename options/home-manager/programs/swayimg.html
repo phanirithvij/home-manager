@@ -35,7 +35,7 @@
             const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../../searchindex-7543472e.js";
+            window.path_to_searchindex_js = "../../../searchindex-b14a242a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../../toc-a22c24be.js"></script>
@@ -202,27 +202,26 @@ package</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayimg.nix">&lt;home-manager/modules/programs/swayimg.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.swayimg.settings"><a class="header" href="#opt-programs.swayimg.settings">programs.swayimg.settings</a></h2>
+<h2 id="opt-programs.swayimg.initLua"><a class="header" href="#opt-programs.swayimg.initLua">programs.swayimg.initLua</a></h2>
 <p>Configuration written to
-<code>$XDG_CONFIG_HOME/swayimg/config</code>. See <a href="https://github.com/artemsen/swayimg/blob/master/extra/swayimgrc">https://github.com/artemsen/swayimg/blob/master/extra/swayimgrc</a> for a list of available options.</p>
+<code>$XDG_CONFIG_HOME/swayimg/init.lua</code>.</p>
+<p>See <a href="https://github.com/artemsen/swayimg/blob/master/CONFIG.md">https://github.com/artemsen/swayimg/blob/master/CONFIG.md</a>
+for documentation.</p>
 <p><em>Type:</em>
-attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
+null or absolute path or strings concatenated with “\n”</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">{ }
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Example:</em></p>
-<pre><code class="language-nix">{
-  viewer = {
-    window = "#10000010";
-    scale = "fill";
-  };
-  "info.viewer" = {
-    top_left = "+name,+format";
-  };
-  "keys.viewer" = {
-    "Shift+r" = "rand_file";
-  };
-}
+<pre><code class="language-nix">swayimg.text.set_size(32)
+swayimg.text.set_foreground(0xffff0000)
+
+swayimg.viewer.set_default_scale("fill")
+
+swayimg.gallery.on_key("Delete", function()
+  local image = swayimg.gallery.get_image()
+  os.remove(image.path)
+end)
 
 </code></pre>
 <p><em>Declared by:</em></p>
