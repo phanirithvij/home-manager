@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-ac795413.js";
+            window.path_to_searchindex_js = "../searchindex-a13a4fd5.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-a22c24be.js"></script>
@@ -186,7 +186,7 @@ how to do this.</p>
 <p>Once you have a fork of Home Manager you should create a branch starting
 at the most recent <code>master</code> branch. Give your branch a reasonably
 descriptive name. Commit your changes to this branch and when you are
-happy with the result and it fulfills <a href="#sec-guidelines">Guidelines</a> then
+happy with the result and it fulfills <a href="guidelines.html#sec-guidelines">Guidelines</a> then
 push the branch to GitHub and <a href="https://help.github.com/articles/creating-a-pull-request/">create a pull
 request</a>.</p>
 <p>Assuming your clone is at <code>$HOME/devel/home-manager</code> then you can make
@@ -196,7 +196,7 @@ the <code>home-manager</code> command use it by either</p>
 <p>overriding the default path by using the <code>-I</code> command line option:</p>
 <pre><code class="language-shell">$ home-manager -I home-manager=$HOME/devel/home-manager
 </code></pre>
-<p>or, if using <a href="#sec-flakes-standalone">flakes</a>:</p>
+<p>or, if using <a href="../nix-flakes/standalone.html#sec-flakes-standalone">flakes</a>:</p>
 <pre><code class="language-shell">$ home-manager --override-input home-manager ~/devel/home-manager
 </code></pre>
 <p>or</p>

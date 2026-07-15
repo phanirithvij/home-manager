@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-ac795413.js";
+            window.path_to_searchindex_js = "../searchindex-a13a4fd5.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-a22c24be.js"></script>
@@ -196,9 +196,9 @@ fully declarative by removing versions and tools that are no longer listed.</p>
 <li>
 <p>On Darwin, Home Manager launchd agents now support
 <a href="../options/home-manager/launchd.html#opt-launchd.agents._name_.domain">launchd.agents.<em>name</em>.domain</a> to choose either the user’s GUI or
-background launchd domain. Background services provided by Home Manager now
-use the user domain, which allows activations from contexts such as SSH
-sessions without requiring an active graphical login session.</p>
+background launchd domain. Agents use the GUI domain by default. Set the
+domain to <code>user</code> for agents that should run without an active graphical login
+session.</p>
 </li>
 </ul>
 <p><a id="sec-release-26.11-state-version-changes"></a></p>
