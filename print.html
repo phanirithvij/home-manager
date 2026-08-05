@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-6baac71f.js";
+            window.path_to_searchindex_js = "searchindex-f32e87f8.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-19723085.js"></script>
+        <script src="toc-97fc2448.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -11178,7 +11178,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-meta.teams"><a class="header" href="#opt-meta.teams">meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -11193,7 +11193,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="news-1"><a href="#news-1" class="header">news</a></h1>
@@ -11891,6 +11891,7 @@ string</p>
 <li><a href="#codex">codex</a></li>
 <li><a href="#command-not-found">command-not-found</a></li>
 <li><a href="#comodoro">comodoro</a></li>
+<li><a href="#crush">crush</a></li>
 <li><a href="#cudatext">cudatext</a></li>
 <li><a href="#cursor">cursor</a></li>
 <li><a href="#darcs">darcs</a></li>
@@ -11907,6 +11908,7 @@ string</p>
 <li><a href="#discord">discord</a></li>
 <li><a href="#distrobox">distrobox</a></li>
 <li><a href="#docker-cli">docker-cli</a></li>
+<li><a href="#dprint">dprint</a></li>
 <li><a href="#earthly">earthly</a></li>
 <li><a href="#ec">ec</a></li>
 <li><a href="#eclipse">eclipse</a></li>
@@ -11923,6 +11925,7 @@ string</p>
 <li><a href="#firefox">firefox</a></li>
 <li><a href="#firefoxpwa">firefoxpwa</a></li>
 <li><a href="#fish">fish</a></li>
+<li><a href="#flake-edit">flake-edit</a></li>
 <li><a href="#flashspace">flashspace</a></li>
 <li><a href="#floorp">floorp</a></li>
 <li><a href="#foliate">foliate</a></li>
@@ -20477,6 +20480,137 @@ open submodule of (TOML value)</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/comodoro.nix">&lt;home-manager/modules/programs/comodoro.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="crush"><a href="#crush" class="header">crush</a></h1>
+<h2 id="opt-programs.crush.enable"><a class="header" href="#opt-programs.crush.enable">programs.crush.enable</a></h2>
+<p>Whether to enable Crush, Charm’s coding agent for the terminal.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.enableMcpIntegration"><a class="header" href="#opt-programs.crush.enableMcpIntegration">programs.crush.enableMcpIntegration</a></h2>
+<p>Whether to integrate the MCP servers config from
+<code>programs.mcp.servers</code> into
+<code>programs.crush.settings.mcp</code>.</p>
+<p>Note: Settings defined in <code>programs.mcp.servers</code> are merged
+with <code>programs.crush.settings.mcp</code>, with Crush settings taking
+precedence.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.package"><a class="header" href="#opt-programs.crush.package">programs.crush.package</a></h2>
+<p>The crush package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.crush
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.settings"><a class="header" href="#opt-programs.crush.settings">programs.crush.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/crush/crush.json</code>.
+See <a href="https://github.com/charmbracelet/crush">https://github.com/charmbracelet/crush</a> for the documentation.</p>
+<p>Crush expands <code>$VAR</code> and <code>$(command)</code> in configuration values, so
+secrets can be read at startup instead of being written to the Nix
+store.</p>
+<p>Note, <code>"$schema": "https://charm.land/crush.json"</code> is automatically
+added to the configuration.</p>
+<p><em>Type:</em>
+JSON value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  models.large = {
+    model = "claude-sonnet-4-20250514";
+    provider = "anthropic";
+  };
+  providers.deepseek = {
+    type = "openai-compat";
+    base_url = "https://api.deepseek.com/v1";
+    api_key = "$(cat /run/secrets/deepseek-api-key)";
+    models = [
+      {
+        id = "deepseek-chat";
+        name = "Deepseek V3";
+      }
+    ];
+  };
+  lsp.nix.command = "nil";
+  options.disabled_tools = [ "sourcegraph" ];
+  permissions.allowed_tools = [ "view" ];
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.skills"><a class="header" href="#opt-programs.crush.skills">programs.crush.skills</a></h2>
+<p>Agent Skills for Crush.</p>
+<p>This option can be either:</p>
+<ul>
+<li>An attribute set defining skills</li>
+<li>A path to a directory containing skill folders</li>
+</ul>
+<p>If an attribute set is used, the attribute name becomes the skill
+directory name, and the value is either:</p>
+<ul>
+<li>Inline content as a string (creates <code>crush/skills/&lt;name&gt;/SKILL.md</code>)</li>
+<li>A path to a file (creates <code>crush/skills/&lt;name&gt;/SKILL.md</code>)</li>
+<li>A path to a directory (creates <code>crush/skills/&lt;name&gt;/</code> with all files)</li>
+</ul>
+<p>This also accepts Nix store paths, for example a skill directory from
+a package.</p>
+<p>If a path is used, it is expected to contain one folder per skill name,
+each containing a <code>SKILL.md</code>. The directory is symlinked to
+<code>$XDG_CONFIG_HOME/crush/skills/</code>.</p>
+<p><em>Type:</em>
+(attribute set of (strings concatenated with “\n” or absolute path or string)) or absolute path</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  git-release = ''
+    ---
+    name: git-release
+    description: Create consistent releases and changelogs
+    ---
+
+    ## What I do
+
+    - Draft release notes from merged PRs
+    - Propose a version bump
+  '';
+
+  # A skill can also be a directory containing SKILL.md and other files.
+  data-analysis = ./skills/data-analysis;
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="cudatext"><a href="#cudatext" class="header">cudatext</a></h1>
 <h2 id="opt-programs.cudatext.enable"><a class="header" href="#opt-programs.cudatext.enable">programs.cudatext.enable</a></h2>
 <p>Whether to enable cudatext.</p>
@@ -22209,6 +22343,65 @@ JSON value</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/docker-cli.nix">&lt;home-manager/modules/programs/docker-cli.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="dprint"><a href="#dprint" class="header">dprint</a></h1>
+<h2 id="opt-programs.dprint.enable"><a class="header" href="#opt-programs.dprint.enable">programs.dprint.enable</a></h2>
+<p>Whether to enable dprint: a code formatter for common filetypes like markdown, toml, yaml,
+and many more. See https://dprint.dev/
+.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dprint.nix">&lt;home-manager/modules/programs/dprint.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.dprint.package"><a class="header" href="#opt-programs.dprint.package">programs.dprint.package</a></h2>
+<p>The dprint package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.dprint
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dprint.nix">&lt;home-manager/modules/programs/dprint.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.dprint.settings"><a class="header" href="#opt-programs.dprint.settings">programs.dprint.settings</a></h2>
+<p>Settings to add to <code>$XDG_CONFIG_HOME/dprint/dprint.json</code>.</p>
+<p><em>Type:</em>
+JSON value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  excludes = [
+    "**/node_modules"
+    "**/*-lock.json"
+  ];
+  plugins = [
+    "https://plugins.dprint.dev/typescript-0.96.1.wasm"
+    "${pkgs.dprint-plugins.g-plane-pretty_yaml}/plugin.wasm"
+  ];
+  json = { };
+  malva = { };
+  markdown = { };
+  toml = { };
+  typescript = { };
+  yaml = { };
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dprint.nix">&lt;home-manager/modules/programs/dprint.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="earthly"><a href="#earthly" class="header">earthly</a></h1>
 <h2 id="opt-programs.earthly.enable"><a class="header" href="#opt-programs.earthly.enable">programs.earthly.enable</a></h2>
 <p>Whether to enable earthly.</p>
@@ -23607,7 +23800,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.meta.teams">programs.firefox.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23622,7 +23815,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.settings">programs.firefox.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -23997,7 +24190,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.meta.teams">programs.firefox.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -24012,7 +24205,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.mimeTypes">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -24405,7 +24598,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.search.meta.teams">programs.firefox.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -24420,7 +24613,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.order"><a class="header" href="#opt-programs.firefox.profiles._name_.search.order">programs.firefox.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -25297,6 +25490,63 @@ strings concatenated with “\n”</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix">&lt;home-manager/modules/programs/fish.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="flake-edit"><a href="#flake-edit" class="header">flake-edit</a></h1>
+<h2 id="opt-programs.flake-edit.enable"><a class="header" href="#opt-programs.flake-edit.enable">programs.flake-edit.enable</a></h2>
+<p>Whether to enable flake-edit.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flake-edit.nix">&lt;home-manager/modules/programs/flake-edit.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.flake-edit.package"><a class="header" href="#opt-programs.flake-edit.package">programs.flake-edit.package</a></h2>
+<p>The flake-edit package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.flake-edit
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flake-edit.nix">&lt;home-manager/modules/programs/flake-edit.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.flake-edit.settings"><a class="header" href="#opt-programs.flake-edit.settings">programs.flake-edit.settings</a></h2>
+<p>Configuration written to <code>$XDG_CONFIG_HOME/flake-edit/config.toml</code> on Linux or
+<code>$HOME/Library/Application Support/flake-edit/config.toml</code> on Darwin.
+See <a href="https://github.com/a-kenji/flake-edit#configuration">https://github.com/a-kenji/flake-edit#configuration</a> for documentation.</p>
+<p><em>Type:</em>
+TOML value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  follow = {
+    aliases = {
+      nixpkgs = [
+        "nixpkgs-lib"
+      ];
+    };
+    ignore = [
+      "systems"
+      "crane.flake-utils"
+    ];
+    max_depth = 1;
+    transitive_min = 2;
+  };
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flake-edit.nix">&lt;home-manager/modules/programs/flake-edit.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="flashspace"><a href="#flashspace" class="header">flashspace</a></h1>
 <h2 id="opt-programs.flashspace.enable"><a class="header" href="#opt-programs.flashspace.enable">programs.flashspace.enable</a></h2>
 <p>Whether to enable FlashSpace workspace manager for macOS.</p>
@@ -25661,7 +25911,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.meta.teams">programs.floorp.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25676,7 +25926,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.settings">programs.floorp.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -26051,7 +26301,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.meta.teams">programs.floorp.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -26066,7 +26316,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.mimeTypes">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -26459,7 +26709,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.search.meta.teams">programs.floorp.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -26474,7 +26724,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.order"><a class="header" href="#opt-programs.floorp.profiles._name_.search.order">programs.floorp.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -37236,7 +37486,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.meta.teams">programs.librewolf.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37251,7 +37501,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.settings">programs.librewolf.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -37626,7 +37876,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.meta.teams">programs.librewolf.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37641,7 +37891,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.mimeTypes">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -38034,7 +38284,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.meta.teams">programs.librewolf.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -38049,7 +38299,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.order"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.order">programs.librewolf.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -56126,7 +56376,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.meta.teams">programs.thunderbird.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -56141,7 +56391,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix">/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix">/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.order"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.order">programs.thunderbird.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -67767,8 +68017,8 @@ package</p>
 </ul>
 <h2 id="opt-services.easyeffects.extraPresets"><a class="header" href="#opt-services.easyeffects.extraPresets">services.easyeffects.extraPresets</a></h2>
 <p>List of presets to import to easyeffects.
-Presets are written to input and output folder in <code>$XDG_DATA_HOME/easyeffects</code>.
-Top level block (input/output) determines the folder the file is written to.</p>
+Presets are written to input and output folders in <code>$XDG_DATA_HOME/easyeffects</code>.
+Each top-level block (<code>input</code> or <code>output</code>) is written to its corresponding folder.</p>
 <p>See community presets at:
 https://github.com/wwmm/easyeffects/wiki/Community-Presets</p>
 <p><em>Type:</em>
@@ -67797,6 +68047,14 @@ null or (attribute set of attribute set of (JSON value))</p>
         wet = 0.0;
       };
     };
+    output = {
+      blocklist = [ ];
+      "plugins_order" = [ "limiter#0" ];
+      "limiter#0" = {
+        bypass = false;
+        threshold = -1.0;
+      };
+    };
   };
 };
 
@@ -67806,12 +68064,60 @@ null or (attribute set of attribute set of (JSON value))</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/easyeffects.nix">&lt;home-manager/modules/services/easyeffects.nix&gt;</a></li>
 </ul>
 <h2 id="opt-services.easyeffects.preset"><a class="header" href="#opt-services.easyeffects.preset">services.easyeffects.preset</a></h2>
-<p>Which preset to use when starting easyeffects.
-Will likely need to launch easyeffects to initially create preset.</p>
+<p>Preset to load when starting EasyEffects.</p>
+<p>A string loads every input or output preset having that name. An
+attribute set selects input and output presets independently and
+requires EasyEffects 8.0.9 or later. An empty string leaves that
+pipeline unchanged.</p>
+<p>You will likely need to launch EasyEffects to initially create presets.</p>
+<p><em>Type:</em>
+string or (submodule)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  input = "voice";
+  output = "music";
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/easyeffects.nix">&lt;home-manager/modules/services/easyeffects.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.easyeffects.preset.input"><a class="header" href="#opt-services.easyeffects.preset.input">services.easyeffects.preset.input</a></h2>
+<p>Input preset to load when starting EasyEffects.</p>
 <p><em>Type:</em>
 string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">""
+</code></pre>
+<h2 id="opt-services.easyeffects.preset.output"><a class="header" href="#opt-services.easyeffects.preset.output">services.easyeffects.preset.output</a></h2>
+<p>Output preset to load when starting EasyEffects.</p>
+<p><em>Type:</em>
+string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<h2 id="opt-services.easyeffects.settings"><a class="header" href="#opt-services.easyeffects.settings">services.easyeffects.settings</a></h2>
+<p>Global EasyEffects settings written to its mutable KConfig database.
+Settings are grouped by KConfig section. A value of <code>null</code> deletes the
+corresponding key. This option requires EasyEffects 8.0.0 or later.</p>
+<p><em>Type:</em>
+attribute set of attribute set of (null or boolean or signed integer or floating point number or string or absolute path)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  StreamInputs = {
+    inputDevice = "alsa_input.usb-example";
+    listenToMic = false;
+  };
+  StreamOutputs.useDefaultOutputDevice = true;
+}
+
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
